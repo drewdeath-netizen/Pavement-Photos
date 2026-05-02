@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pavement Photos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f0ece4;
+    --ink: #0a0a0a;
+    --warm-grey: #6a6058;
+    --mid-grey: #c8c0b4;
+    --light-grey: #e0d8ce;
+    --accent: #c8401a;
+    --rule: 1px solid #d0c8be;
+    --rule-dark: 1px solid #b0a89e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    overflow-x: hidden;
+  }
+
+  section[id], div[id] { scroll-margin-top: 72px; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 1.5rem 2.5rem 1rem;
+    border-bottom: var(--rule-dark);
+    background: rgba(240,236,228,0.96);
+    backdrop-filter: blur(6px);
+  }
+
+  .nav-wordmark {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-wordmark span { color: var(--accent); }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+  .nav-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--warm-grey);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* HERO */
+  .hero { margin-top: 60px; position: relative; width: 100%; }
+
+  .hero-image {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    background: var(--light-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: var(--rule-dark);
+  }
+
+  .hero-image::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 3px,
+      rgba(0,0,0,0.015) 3px, rgba(0,0,0,0.015) 4px
+    );
+    pointer-events: none;
+  }
+
+  .hero-image::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(240,236,228,0.1) 0%, rgba(200,192,180,0.25) 100%);
+  }
+
+  .hero-placeholder-text {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mid-grey);
+    z-index: 1;
+    text-align: center;
+    line-height: 2;
+  }
+  .hero-placeholder-text strong {
+    display: block;
+    font-size: 0.5rem;
+    color: #c0b8ae;
+    margin-top: 0.5rem;
+  }
+
+  .hero-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1.5rem 2.5rem;
+    background: linear-gradient(transparent, rgba(240,236,228,0.85));
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .hero-caption-text { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm-grey); font-style: italic; }
+  .hero-caption-counter { font-size: 0.6rem; letter-spacing: 0.1em; color: var(--mid-grey); }
+
+  /* TICKER */
+  .ticker {
+    border-bottom: var(--rule-dark);
+    padding: 0.65rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    background: var(--bg);
+  }
+  .ticker-inner { display: inline-block; animation: ticker 30s linear infinite; }
+  .ticker-inner span { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-grey); padding: 0 2rem; }
+  .ticker-inner span.sep { color: var(--accent); padding: 0; }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* MAIN */
+  main { max-width: 1400px; margin: 0 auto; padding: 0 2.5rem; }
+
+  /* STATEMENT */
+  .statement {
+    padding: 6rem 0 5rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    border-bottom: var(--rule);
+  }
+  .statement-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); padding-top: 0.4rem; }
+  .statement-body h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    letter-spacing: 0.05em;
+    line-height: 0.95;
+    color: var(--ink);
+    margin-bottom: 2rem;
+  }
+  .statement-body h1 em { color: var(--accent); font-style: normal; }
+  .statement-body p {
+    font-size: 0.85rem; line-height: 1.85; color: var(--warm-grey);
+    max-width: 60ch; font-family: 'Libre Baskerville', serif; font-style: italic;
+  }
+
+  /* SECTION HEADER */
+  .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2.5rem; }
+  .section-title { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--warm-grey); }
+  .section-count { font-size: 0.55rem; letter-spacing: 0.15em; color: var(--mid-grey); }
+
+  /* WORK */
+  .work-section { padding: 5rem 0; border-bottom: var(--rule); }
+
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule-dark);
+    border: var(--rule-dark);
+  }
+  .photo-cell {
+    background: var(--light-grey);
+    aspect-ratio: 4/3;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    cursor: pointer; transition: background 0.3s;
+  }
+  .photo-cell:hover { background: #ddd5c8; }
+  .photo-cell::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0,0,0,0.018) 20px, rgba(0,0,0,0.018) 21px);
+  }
+  .photo-cell-inner { text-align: center; z-index: 1; }
+  .photo-cell-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: #c8c0b4; line-height: 1; display: block; margin-bottom: 0.5rem; }
+  .photo-cell-label { font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: #b8b0a8; }
+  .photo-cell-meta { position: absolute; bottom: 0.75rem; left: 0.75rem; right: 0.75rem; display: flex; justify-content: space-between; opacity: 0; transition: opacity 0.3s; }
+  .photo-cell:hover .photo-cell-meta { opacity: 1; }
+  .photo-cell-meta span { font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm-grey); }
+
+  /* ABOUT */
+  .ethos { padding: 5rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; border-bottom: var(--rule); }
+  .ethos-left h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
+  .ethos-left h2 span { display: block; color: var(--accent); }
+  .ethos-principles { list-style: none; margin-top: 3rem; }
+  .ethos-principles li { display: flex; gap: 1rem; padding: 1rem 0; border-top: var(--rule); font-size: 0.7rem; line-height: 1.6; color: var(--warm-grey); letter-spacing: 0.03em; }
+  .ethos-principles li::before { content: attr(data-n); font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--mid-grey); flex-shrink: 0; line-height: 1.2; }
+  .ethos-right p { font-family: 'Libre Baskerville', serif; font-size: 0.9rem; line-height: 1.9; color: var(--warm-grey); font-style: italic; margin-bottom: 1.5rem; }
+  .ethos-right p strong { font-style: normal; color: var(--ink); font-weight: 400; }
+
+  /* MEMBERS */
+  .members-section { padding: 5rem 0; border-bottom: var(--rule); }
+  .members-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule-dark); border: var(--rule-dark); margin-top: 2.5rem; }
+  .member-card { background: var(--bg); padding: 1.5rem; transition: background 0.2s; }
+  .member-card:hover { background: var(--light-grey); }
+  .member-avatar {
+    width: 100%; aspect-ratio: 1;
+    background: var(--light-grey);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .member-avatar::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(0,0,0,0.02) 8px, rgba(0,0,0,0.02) 9px);
+  }
+  .member-avatar span { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--mid-grey); z-index: 1; }
+  .member-name { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 0.25rem; }
+  .member-focus { font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+
+  /* MEETUP */
+  .meetup { padding: 5rem 0; display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; border-bottom: var(--rule); align-items: start; }
+  .meetup h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3vw, 3rem); letter-spacing: 0.05em; margin-bottom: 1.5rem; color: var(--ink); }
+  .meetup p { font-size: 0.75rem; line-height: 1.8; color: var(--warm-grey); margin-bottom: 1rem; max-width: 55ch; }
+  .meetup-detail { background: var(--light-grey); border: var(--rule-dark); padding: 2rem; }
+  .meetup-detail-row { padding: 0.75rem 0; border-bottom: var(--rule); display: flex; flex-direction: column; gap: 0.25rem; }
+  .meetup-detail-row:last-child { border-bottom: none; }
+  .meetup-detail-key { font-size: 0.5rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); }
+  .meetup-detail-val { font-size: 0.75rem; color: var(--ink); letter-spacing: 0.05em; }
+
+  /* CONTACT */
+  .contact-section { padding: 5rem 0; border-bottom: var(--rule); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+  .contact-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3vw, 3rem); letter-spacing: 0.05em; color: var(--ink); margin-bottom: 1.5rem; }
+  .contact-section h2 span { color: var(--accent); }
+  .contact-section > div > p { font-size: 0.75rem; line-height: 1.8; color: var(--warm-grey); margin-bottom: 1rem; max-width: 50ch; }
+  .contact-links { list-style: none; margin-top: 2rem; }
+  .contact-links li { padding: 1rem 0; border-top: var(--rule); display: flex; justify-content: space-between; align-items: center; }
+  .contact-links li:last-child { border-bottom: var(--rule); }
+  .contact-link-label { font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-grey); }
+  .contact-link-val { font-size: 0.7rem; color: var(--ink); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
+  .contact-link-val:hover { color: var(--accent); }
+  .contact-form-side { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-form-side input,
+  .contact-form-side textarea {
+    width: 100%; background: var(--light-grey); border: var(--rule-dark);
+    padding: 0.85rem 1rem; font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem; color: var(--ink); letter-spacing: 0.05em;
+    outline: none; transition: border-color 0.2s; resize: none;
+  }
+  .contact-form-side input::placeholder,
+  .contact-form-side textarea::placeholder { color: var(--mid-grey); text-transform: uppercase; font-size: 0.55rem; letter-spacing: 0.15em; }
+  .contact-form-side input:focus,
+  .contact-form-side textarea:focus { border-color: var(--accent); }
+  .contact-form-side textarea { min-height: 120px; }
+  .submit-btn {
+    display: inline-block; padding: 1rem 2rem;
+    background: var(--ink); border: 1px solid var(--ink);
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--bg);
+    cursor: pointer; transition: background 0.2s, color 0.2s; align-self: flex-start;
+  }
+  .submit-btn:hover { background: var(--accent); border-color: var(--accent); }
+
+  /* FOOTER */
+  footer { padding: 2.5rem 2.5rem; display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
+  .footer-wordmark { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.15em; color: var(--mid-grey); }
+  .footer-wordmark span { color: var(--accent); opacity: 0.6; }
+  .footer-copy { font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid-grey); }
+
+  /* FADE IN */
+  .fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease forwards; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.25s; }
+  .delay-3 { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-wordmark">Pavement<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#members">Members</a></li>
+    <li><a href="#meetup">Meetup</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero fade-up">
+  <div class="hero-image">
+    <div class="hero-placeholder-text">
+      Hero Image — 3:2 Landscape
+      <strong>1800 × 1200px recommended</strong>
+    </div>
+    <div class="hero-caption">
+      <span class="hero-caption-text">Featured work — member name, location, year</span>
+      <span class="hero-caption-counter">01 / 01</span>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Street</span><span class="sep">·</span>
+    <span>Documentary</span><span class="sep">·</span>
+    <span>Photojournalism</span><span class="sep">·</span>
+    <span>Environmental Portrait</span><span class="sep">·</span>
+    <span>Urban Architecture</span><span class="sep">·</span>
+    <span>Social Documentary</span><span class="sep">·</span>
+    <span>Ground Level Always</span><span class="sep">·</span>
+    <span>Perth, Scotland</span><span class="sep">·</span>
+    <span>Est. 2026</span><span class="sep">·</span>
+    <span>Street</span><span class="sep">·</span>
+    <span>Documentary</span><span class="sep">·</span>
+    <span>Photojournalism</span><span class="sep">·</span>
+    <span>Environmental Portrait</span><span class="sep">·</span>
+    <span>Urban Architecture</span><span class="sep">·</span>
+    <span>Social Documentary</span><span class="sep">·</span>
+    <span>Ground Level Always</span><span class="sep">·</span>
+    <span>Perth, Scotland</span><span class="sep">·</span>
+    <span>Est. 2026</span><span class="sep">·</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- STATEMENT -->
+  <section class="statement fade-up delay-1">
+    <div class="statement-label">Mission</div>
+    <div class="statement-body">
+      <h1>Photography<br>from the<br><em>street up.</em></h1>
+      <p>Pavement Photos is a photography collective rooted in the documentary and street traditions — urban and wild, social and environmental. Unposed, unsponsored, and unglamorous in the best sense. We make photographs that need to be made, and we work with organisations who want their story told</p>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="work-section fade-up delay-2">
+    <div class="section-header">
+      <span class="section-title">Recent Work</span>
+      <span class="section-count">6 of 48</span>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-cell">
+        <div class="photo-cell-inner"><span class="photo-cell-num">01</span><span class="photo-cell-label">4:3 · 1200 × 900px</span></div>
+        <div class="photo-cell-meta"><span>Member Name</span><span>Perth, 2025</span></div>
+      </div>
+      <div class="photo-cell">
+        <div class="photo-cell-inner"><span class="photo-cell-num">02</span><span class="photo-cell-label">4:3 · 1200 × 900px</span></div>
+        <div class="photo-cell-meta"><span>Member Name</span><span>Perth, 2025</span></div>
+      </div>
+      <div class="photo-cell">
+        <div class="photo-cell-inner"><span class="photo-cell-num">03</span><span class="photo-cell-label">4:3 · 1200 × 900px</span></div>
+        <div class="photo-cell-meta"><span>Member Name</span><span>Perth, 2025</span></div>
+      </div>
+      <div class="photo-cell">
+        <div class="photo-cell-inner"><span class="photo-cell-num">04</span><span class="photo-cell-label">4:3 · 1200 × 900px</span></div>
+        <div class="photo-cell-meta"><span>Member Name</span><span>Perth, 2025</span></div>
+      </div>
+      <div class="photo-cell">
+        <div class="photo-cell-inner"><span class="photo-cell-num">05</span><span class="photo-cell-label">4:3 · 1200 × 900px</span></div>
+        <div class="photo-cell-meta"><span>Member Name</span><span>Perth, 2025</span></div>
+      </div>
+      <div class="photo-cell">
+        <div class="photo-cell-inner"><span class="photo-cell-num">06</span><span class="photo-cell-label">4:3 · 1200 × 900px</span></div>
+        <div class="photo-cell-meta"><span>Member Name</span><span>Perth, 2025</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="ethos fade-up delay-3">
+    <div class="ethos-left">
+      <h2>What we<br>stand<br><span>for.</span></h2>
+      <ul class="ethos-principles">
+        <li data-n="01">Members retain full copyright and ownership of all work at all times.</li>
+        <li data-n="02">Decisions affecting the collective are made by consensus among active members.</li>
+        <li data-n="03">New members are invited by existing members based on quality and ethos of work.</li>
+        <li data-n="04">The collective will not accept commissions that conflict with its values.</li>
+        <li data-n="05">Any commercial income is distributed transparently and agreed collectively.</li>
+      </ul>
+    </div>
+    <div class="ethos-right">
+      <p>We draw on a long tradition of photographers who pointed their cameras at the <strong>real world</strong> — from the earliest Scottish documentary work to the cooperative model pioneered by Magnum Photos.</p>
+      <p>Photography is a form of <strong>witness</strong>, and that witness is a political act. Our members work across street photography, documentary, photojournalism, environmental portraiture, and long-form storytelling.</p>
+      <p>We are on the side of people over profit, place over development, the overlooked over the celebrated.</p>
+    </div>
+  </section>
+
+  <!-- MEMBERS -->
+  <section id="members" class="members-section">
+    <div class="section-header">
+      <span class="section-title">Members</span>
+      <span class="section-count">Founding cohort</span>
+    </div>
+    <div class="members-grid">
+      <div class="member-card">
+        <div class="member-avatar"><span>01</span></div>
+        <div class="member-name">Member Name</div>
+        <div class="member-focus">Street · Documentary</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><span>02</span></div>
+        <div class="member-name">Member Name</div>
+        <div class="member-focus">Photojournalism</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><span>03</span></div>
+        <div class="member-name">Member Name</div>
+        <div class="member-focus">Environmental Portrait</div>
+      </div>
+      <div class="member-card">
+        <div class="member-avatar"><span>04</span></div>
+        <div class="member-name">Member Name</div>
+        <div class="member-focus">Urban Architecture</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEETUP -->
+  <section id="meetup" class="meetup">
+    <div>
+      <h2>Monthly Meetup</h2>
+      <p>We meet once a month in Perth. A projector, some pints, and honest conversation about photography and the work we're making. Attendance at monthly meetings is open to anyone with a genuine interest in the documentary and street traditions.</p>
+      <p>Membership is selective rather than open. Prospective members show work and are invited in by existing members. This isn't gatekeeping — it's how we maintain a shared standard and a coherent collective voice.</p>
+    </div>
+    <div class="meetup-detail">
+      <div class="meetup-detail-row">
+        <span class="meetup-detail-key">When</span>
+        <span class="meetup-detail-val">First Thursday, Monthly</span>
+      </div>
+      <div class="meetup-detail-row">
+        <span class="meetup-detail-key">Where</span>
+        <span class="meetup-detail-val">Perth, Scotland<br>Venue TBC</span>
+      </div>
+      <div class="meetup-detail-row">
+        <span class="meetup-detail-key">Format</span>
+        <span class="meetup-detail-val">Open attendance<br>Projector + discussion</span>
+      </div>
+      <div class="meetup-detail-row">
+        <span class="meetup-detail-key">Cost</span>
+        <span class="meetup-detail-val">Free to attend</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div>
+      <h2>Get in<br><span>touch.</span></h2>
+      <p>Whether you're interested in attending a meetup, applying for membership, or discussing a commission — we'd like to hear from you.</p>
+      <ul class="contact-links">
+        <li>
+          <span class="contact-link-label">Email</span>
+          <a href="mailto:hello@pavementphotos.com" class="contact-link-val">hello@pavementphotos.com</a>
+        </li>
+        <li>
+          <span class="contact-link-label">Instagram</span>
+          <a href="#" class="contact-link-val">@pavementphotos</a>
+        </li>
+        <li>
+          <span class="contact-link-label">Based</span>
+          <span class="contact-link-val">Perth, Scotland</span>
+        </li>
+      </ul>
+    </div>
+    <div class="contact-form-side">
+      <input type="text" placeholder="Your name">
+      <input type="email" placeholder="Your email">
+      <input type="text" placeholder="Subject — Meetup / Membership / Commission">
+      <textarea placeholder="Message"></textarea>
+      <button class="submit-btn">Send message</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-wordmark">Pavement<span>.</span></div>
+  <span class="footer-copy">© 2025 Pavement Photos — Perth, Scotland — All rights reserved by individual members</span>
+</footer>
+
+</body>
+</html>
