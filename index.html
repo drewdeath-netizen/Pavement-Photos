@@ -66,7 +66,6 @@
   }
   .nav-wordmark span { color: var(--accent); }
 
-  /* Hamburger button — hidden on desktop */
   .nav-toggle {
     display: none;
     flex-direction: column;
@@ -147,7 +146,7 @@
   main { max-width: 1400px; margin: 0 auto; padding: 0 2.5rem; }
 
   /* ─── STATEMENT ─── */
-  .statement { padding: 5rem 0 5rem; display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; border-bottom: var(--rule); }
+  .statement { padding: 3rem 0; display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; border-bottom: var(--rule); }
   .statement-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); padding-top: 0.4rem; }
   .statement-body h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); letter-spacing: 0.05em; line-height: 0.95; color: var(--ink); margin-bottom: 2rem; }
   .statement-body h1 em { color: var(--accent); font-style: normal; }
@@ -159,8 +158,10 @@
   .section-count { font-size: 0.55rem; letter-spacing: 0.15em; color: var(--mid-grey); }
 
   /* ─── WORK ─── */
-  .work-section { padding: 5rem 0; border-bottom: var(--rule); }
-  .photo-grid {display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;background: var(--rule-dark); border: var(--rule-dark); }
+  .work-section { padding: 3rem 0; border-bottom: var(--rule); }
+  .work-section-title h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
+  .work-section-title h2 span { display: block; color: var(--accent); }
+  .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule-dark); border: var(--rule-dark); }
   .photo-cell { background: var(--light-grey); aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s; }
   .photo-cell:hover { background: #ddd5c8; }
   .photo-cell-meta { position: absolute; bottom: 0.75rem; left: 0.75rem; right: 0.75rem; display: flex; justify-content: space-between; opacity: 0; transition: opacity 0.3s; }
@@ -168,18 +169,83 @@
   .photo-cell-meta span { font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bg); }
 
   /* ─── ABOUT ─── */
-  .ethos { padding: 5rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; border-bottom: var(--rule); }
+  .ethos { padding: 3rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; border-bottom: var(--rule); }
   .ethos-left p { font-family: 'Libre Baskerville', serif; font-size: 0.9rem; line-height: 1.9; color: var(--warm-grey); font-style: italic; margin-bottom: 1.5rem; }
   .ethos-left h2,
   .ethos-right h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
   .ethos-left h2 span,
   .ethos-right h2 span { display: block; color: var(--accent); }
-  .ethos-principles { list-style: none; margin-top: 3rem; }
-  .ethos-principles li { display: flex; gap: 1rem; padding: 1rem 0; border-top: var(--rule); font-size: 0.7rem; line-height: 1.6; color: var(--warm-grey); letter-spacing: 0.03em; }
-  .ethos-principles li::before { content: attr(data-n); font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--mid-grey); flex-shrink: 0; line-height: 1.2; }
+
+  /* VALUES LIST — three-column grid for alignment */
+  .ethos-principles { list-style: none; margin-top: 1rem; }
+  .ethos-principles li {
+    display: grid;
+    grid-template-columns: 2.5rem 8rem 1fr;
+    gap: 0 0.75rem;
+    padding: 1rem 0;
+    border-top: var(--rule);
+    font-size: 0.7rem;
+    line-height: 1.6;
+    color: var(--warm-grey);
+    letter-spacing: 0.03em;
+    align-items: start;
+  }
+  .ethos-principles li .val-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--mid-grey);
+    line-height: 1.2;
+  }
+  .ethos-principles li .val-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+    padding-top: 0.05rem;
+  }
+  .ethos-principles li .val-text {
+    color: var(--warm-grey);
+  }
+
+  /* MEMBER PRINCIPLES LIST */
+  .member-principles-wrap {
+    margin-top: 2rem;
+    padding-top: 1rem;
+
+  }
+  .member-principles-wrap h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    letter-spacing: 0.05em;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  .member-principles-wrap h2 span { color: var(--accent); }
+  .member-principles { list-style: none; }
+  .member-principles li {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0 0.75rem;
+    padding: 0.5rem 0;
+    border-top: var(--rule);
+    font-size: 0.7rem;
+    line-height: 1.6;
+    color: var(--warm-grey);
+    letter-spacing: 0.03em;
+    align-items: start;
+  }
+  .member-principles li .p-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--mid-grey);
+    line-height: 1.2;
+  }
 
   /* ─── MEMBERS ─── */
-  .members-section { padding: 5rem 0; border-bottom: var(--rule); }
+  .members-section { padding: 3rem 0; border-bottom: var(--rule); }
+  .members-section-title h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 2.5vw, 2.5rem); letter-spacing: 0.05em; line-height: 1; color: var(--ink); margin-bottom: 1.5rem; }
+  .members-section-title h2 span { color: var(--accent); }
   .members-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule-dark); border: var(--rule-dark); margin-top: 2.5rem; }
   .member-card { background: var(--bg); padding: 1.5rem; transition: background 0.2s; }
   .member-card:hover { background: var(--light-grey); }
@@ -189,7 +255,7 @@
   .member-focus { font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
 
   /* ─── MEETUP ─── */
-  .meetup { padding: 5rem 0; display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; border-bottom: var(--rule); align-items: center; justify-content: center;}
+  .meetup { padding: 3rem 0; display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; border-bottom: var(--rule); align-items: center; }
   .meetup h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
   .meetup h2 span { display: block; color: var(--accent); }
   .meetup p { font-size: 0.75rem; line-height: 1.8; color: var(--warm-grey); margin-bottom: 1rem; max-width: 55ch; }
@@ -200,7 +266,7 @@
   .meetup-detail-val { font-size: 0.75rem; color: var(--ink); letter-spacing: 0.05em; }
 
   /* ─── CONTACT ─── */
-  .contact-section { padding: 5rem 0; border-bottom: var(--rule); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; justify-content: center;}
+  .contact-section { padding: 3rem 0; border-bottom: var(--rule); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
   .contact-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3vw, 3rem); letter-spacing: 0.05em; color: var(--ink); margin-bottom: 1.5rem; }
   .contact-section h2 span { color: var(--accent); }
   .contact-section > div > p { font-size: 0.75rem; line-height: 1.8; color: var(--warm-grey); margin-bottom: 1rem; max-width: 50ch; }
@@ -245,16 +311,12 @@
   .delay-2 { animation-delay: 0.25s; }
   .delay-3 { animation-delay: 0.4s; }
 
-
   /* ════════════════════════════════════════
      MOBILE BREAKPOINTS
   ════════════════════════════════════════ */
 
   @media (max-width: 768px) {
-
-    /* NAV — hamburger menu */
     .nav-toggle { display: flex; }
-
     .nav-links {
       display: none;
       position: fixed;
@@ -268,89 +330,51 @@
     }
     .nav-links.open { display: flex; }
     .nav-links li { border-top: var(--rule); }
-    .nav-links a {
-      display: block;
-      padding: 1.1rem 1.5rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-    }
+    .nav-links a { display: block; padding: 1.1rem 1.5rem; font-size: 0.75rem; letter-spacing: 0.2em; }
 
-    /* MAIN padding */
     main { padding: 0 1.25rem; }
 
-    /* HERO */
     .hero { margin-top: 56px; }
     .hero-image { max-height: 40vh; }
     .hero-caption { padding: 1rem 1.25rem; }
     .hero-caption-text { font-size: 0.5rem; }
 
-    /* STATEMENT — single column */
-    .statement {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      padding: 3rem 0 2.5rem;
-    }
+    .statement { grid-template-columns: 1fr; gap: 1.5rem; padding: 3rem 0 2.5rem; }
     .statement-body h1 { font-size: clamp(2.5rem, 10vw, 3.5rem); margin-bottom: 1.25rem; }
     .statement-body p { font-size: 0.8rem; }
 
-    /* WORK — 2 columns on mobile */
     .work-section { padding: 3rem 0; }
     .photo-grid { grid-template-columns: repeat(2, 1fr); }
-    .photo-cell-meta { opacity: 1; } /* always visible on touch */
+    .photo-cell-meta { opacity: 1; }
 
-    /* ABOUT — single column */
-    .ethos {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      padding: 3rem 0;
-    }
+    .ethos { grid-template-columns: 1fr; gap: 3rem; padding: 3rem 0; }
 
-    /* MEMBERS — 2 columns */
+    /* Values on mobile — tighter columns */
+    .ethos-principles li { grid-template-columns: 2rem 6rem 1fr; gap: 0 0.5rem; }
+
     .members-section { padding: 3rem 0; }
     .members-grid { grid-template-columns: repeat(2, 1fr); }
     .member-card { padding: 1rem; }
     .member-name { font-size: 0.85rem; }
 
-    /* MEETUP — single column */
-    .meetup {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      padding: 3rem 0;
-    }
+    .meetup { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0; }
     .meetup-detail-row { padding: 1.25rem 0; }
 
-    /* CONTACT — single column */
-    .contact-section {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-      padding: 3rem 0;
-    }
+    .contact-section { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 0; }
     .submit-btn { width: 100%; text-align: center; }
 
-    /* FOOTER — stacked */
-    footer {
-      flex-direction: column;
-      gap: 0.75rem;
-      text-align: center;
-      padding: 2rem 1.25rem;
-    }
+    footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 2rem 1.25rem; }
   }
 
-  /* Slightly wider tablets — keep 2-col but tighten */
   @media (max-width: 1024px) and (min-width: 769px) {
     main { padding: 0 1.75rem; }
-
     .statement { grid-template-columns: 1fr 2fr; gap: 2rem; }
-
     .ethos { gap: 3rem; }
-
     .members-grid { grid-template-columns: repeat(2, 1fr); }
-
     .meetup { grid-template-columns: 1fr 1fr; gap: 2rem; }
-
     .contact-section { gap: 3rem; }
-
     nav { padding: 1rem 1.75rem; }
+    .ethos-principles li { grid-template-columns: 2.5rem 7rem 1fr; }
   }
 </style>
 </head>
@@ -358,13 +382,11 @@
 
 <nav>
   <a href="#" class="nav-wordmark">Pavement<span>.</span></a>
-
   <button class="nav-toggle" aria-label="Toggle menu" onclick="this.classList.toggle('open'); document.querySelector('.nav-links').classList.toggle('open');">
     <span></span><span></span><span></span>
   </button>
-
   <ul class="nav-links">
-    <li><a href="#mission" onclick="document.querySelector('.nav-links').classList.remove('open'); document.querySelector('.nav-toggle').classList.remove('open');">Mission</a></li>
+    <li><a href="#statement" onclick="document.querySelector('.nav-links').classList.remove('open'); document.querySelector('.nav-toggle').classList.remove('open');">Statement</a></li>
     <li><a href="#work" onclick="document.querySelector('.nav-links').classList.remove('open'); document.querySelector('.nav-toggle').classList.remove('open');">Work</a></li>
     <li><a href="#about" onclick="document.querySelector('.nav-links').classList.remove('open'); document.querySelector('.nav-toggle').classList.remove('open');">About</a></li>
     <li><a href="#members" onclick="document.querySelector('.nav-links').classList.remove('open'); document.querySelector('.nav-toggle').classList.remove('open');">Members</a></li>
@@ -412,64 +434,46 @@
 <main>
 
   <!-- STATEMENT -->
-  <section id="mission" class="statement">
-    <div class="statement-label">Mission</div>
+  <section id="statement" class="statement">
+    <div class="statement-label">Statement</div>
     <div class="statement-body">
       <h1>Photography<br>from the<br><em>street up.</em></h1>
       <p>Pavement Photos is a photography collective rooted in the documentary and street traditions. Urban, wild, social, environmental — unposed, unglamorous.</p>
-	  <p>We make photographs that bear honest witness to the world and the forces that shape both. We work with organisations who want their story told truthfully.</p>
-	  <p>We are on the side of people over profit, place over development, the overlooked over the celebrated.</p>
+      <p>We make photographs that don't look away. We notice what's being ignored, point at what's uncomfortable, and give space to the people, places, and organisations doing necessary work. We are on the side of people over profit, place over development, the overlooked over the celebrated.</p>
     </div>
   </section>
 
   <!-- WORK -->
   <section id="work" class="work-section">
-    <div class="section-header">
-      <span class="section-title">Recent Work</span>
-      <span class="section-count">6 of 48</span>
-    </div>
+    <div class="work-section-header">
+      <span class="work-section-title">
+	  <h2>Recent<span>Work.</span></h2>
+    </span>
+	</div>
     <div class="photo-grid">
       <div class="photo-cell">
-        <img src="images/1.avif" alt="Drew Death, Chicago 2021"
-             style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div class="photo-cell-meta">
-          <span>Drew Death</span><span>Chicago, 2021</span>
-        </div>
+        <img src="images/1.avif" alt="Drew Death, Chicago 2021" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="photo-cell-meta"><span>Drew Death</span><span>Chicago, 2021</span></div>
       </div>
       <div class="photo-cell">
-        <img src="images/2.avif" alt="Drew Death, Glasgow 2025"
-             style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div class="photo-cell-meta">
-          <span>Drew Death</span><span>Glasgow, 2025</span>
-        </div>
+        <img src="images/2.avif" alt="Drew Death, Glasgow 2025" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="photo-cell-meta"><span>Drew Death</span><span>Glasgow, 2025</span></div>
       </div>
       <div class="photo-cell">
-        <img src="images/3.avif" alt="Drew Death, Perth 2025"
-             style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div class="photo-cell-meta">
-          <span>Drew Death</span><span>Perth, 2025</span>
-        </div>
+        <img src="images/3.avif" alt="Drew Death, Perth 2025" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="photo-cell-meta"><span>Drew Death</span><span>Perth, 2025</span></div>
       </div>
       <div class="photo-cell">
-        <img src="images/4.avif" alt="Drew Death, Portland 2021"
-             style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div class="photo-cell-meta">
-          <span>Drew Death</span><span>Portland, 2021</span>
-        </div>
+        <img src="images/4.avif" alt="Drew Death, Portland 2021" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="photo-cell-meta"><span>Drew Death</span><span>Portland, 2021</span></div>
       </div>
       <div class="photo-cell">
-        <img src="images/5.avif" alt="Drew Death, Spain 2023"
-             style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div class="photo-cell-meta">
-          <span>Drew Death</span><span>Spain, 2023</span>
-        </div>
+        <img src="images/5.avif" alt="Drew Death, Spain 2023" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="photo-cell-meta"><span>Drew Death</span><span>Spain, 2023</span></div>
       </div>
       <div class="photo-cell">
-        <img src="images/6.avif" alt="Drew Death, Portland 2022"
-             style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div class="photo-cell-meta">
-          <span>Drew Death</span><span>Portland, 2022</span>
-        </div>
+        <img src="images/6.avif" alt="Drew Death, Portland 2022" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="photo-cell-meta"><span>Drew Death</span><span>Portland, 2022</span></div>
       </div>
     </div>
   </section>
@@ -477,74 +481,114 @@
   <!-- ABOUT -->
   <section id="about" class="ethos">
     <div class="ethos-left">
-      <h2>Our<br><span>Story.</span></h2><br>
-      <p>We draw on a long tradition of photographers who pointed their cameras at the real world — from the earliest Scottish documentary work to the cooperative model pioneered by Magnum Photos.</p>
-      <p>We bring together photographers working in the documentary and street traditions to share work, develop practice, and produce photography that matters.</p>
-      <p>We are on the side of people over profit, place over development, the overlooked over the celebrated.</p>
+      <h2>Our<br><span>Story.</span></h2>
+      <p>Pavement Photos started the way most worthwhile things do — a conversation in a pub between a few people who cared enough about their community, photography, and a willingness to be honest about it.</p>
+      <p>We are a cooperative of photographers who go out into the world with a camera and come back with something true. We share work, challenge each other, and operate on the Magnum model: members own their photographs, decisions are made collectively, and the work always comes first.</p>
+	  <p>The goal is a platform for serious documentary photography — exhibitions, publications, commissioned work for organisations whose values align with ours. A place where photographers at any stage can find peers, develop practice, and get their work seen.</p>
+	  <p>We are based in Perth. We meet monthly. We are just getting started.</p>
     </div>
     <div class="ethos-right">
-      <h2>Our<br><span>Principles.</span></h2>
+      <h2>Our<br><span>Values.</span></h2>
       <ul class="ethos-principles">
-        <li data-n="01">The collective will not accept commissions that conflict with its values.</li>
-        <li data-n="02">Members retain full copyright and ownership of all work at all times.</li>
-        <li data-n="03">Decisions affecting the collective are made by consensus among active members.</li>
-        <li data-n="04">New members are invited by existing members based on quality and ethos of work.</li>
-        <li data-n="05">Any commercial income is distributed transparently and agreed collectively.</li>
+        <li>
+          <span class="val-num">01</span>
+          <span class="val-name">Truth</span>
+          <span class="val-text">We point our cameras at the world as it is, not as power would have it seen. The camera is a tool of accountability.</span>
+        </li>
+        <li>
+          <span class="val-num">02</span>
+          <span class="val-name">Community</span>
+          <span class="val-text">We work from the ground up. Our subject is everyday life — people, place, community, the living world.</span>
+        </li>
+        <li>
+          <span class="val-num">03</span>
+          <span class="val-name">Solidarity</span>
+          <span class="val-text">We act collectively, share equitably, and stand with the people and places we photograph. Their story belongs to them.</span>
+        </li>
+        <li>
+          <span class="val-num">04</span>
+          <span class="val-name">Stewardship</span>
+          <span class="val-text">We treat the natural world as something to protect, not extract from. That shows in the commissions we take and the ones we refuse.</span>
+        </li>
+        <li>
+          <span class="val-num">05</span>
+          <span class="val-name">Openness</span>
+          <span class="val-text">We are inclusive regardless of background, identity, or means. Membership is earned through the work and the values, nothing else.</span>
+        </li>
       </ul>
     </div>
   </section>
 
   <!-- MEMBERS -->
   <section id="members" class="members-section">
-    <div class="section-header">
-      <span class="section-title">Members — Looking to grow. Interested? Get in touch.</span>
-      <span class="section-count">Founding cohort</span>
+    <div class="members-section-title">
+      <h2>Founding <span>Members.</span></h2>
     </div>
     <div class="members-grid">
-
       <div class="member-card">
         <div class="member-avatar">
-          <a href="https://www.drewdeath.com"><img src="images/member1.jpg" alt="Drew Death"
-               style="width:100%;height:100%;object-fit:cover;display:block;"></a>
+          <a href="https://www.drewdeath.com">
+            <img src="images/member1.jpg" alt="Drew Death" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </a>
         </div>
         <div class="member-name">Drew Death</div>
         <div class="member-focus">Street · Documentary</div>
       </div>
-
       <div class="member-card">
         <div class="member-avatar">
-          <img src="images/member2.jpg" alt="Member Name"
-               style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="images/member2.jpg" alt="Member Name" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
         <div class="member-name">Member Name?</div>
         <div class="member-focus">Photojournalism?</div>
       </div>
-
       <div class="member-card">
         <div class="member-avatar">
-          <img src="images/member2.jpg" alt="Member Name"
-               style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="images/member2.jpg" alt="Member Name" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
         <div class="member-name">Member Name?</div>
         <div class="member-focus">Environmental Portrait?</div>
       </div>
-
       <div class="member-card">
         <div class="member-avatar">
-          <img src="images/member2.jpg" alt="Member Name"
-               style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="images/member2.jpg" alt="Member Name" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
         <div class="member-name">Member Name?</div>
         <div class="member-focus">Urban Architecture?</div>
       </div>
+    </div>
 
+    <!-- PAVEMENT PRINCIPLES -->
+    <div class="member-principles-wrap">
+      <h2>Member <span>Principles.</span></h2>
+      <ul class="member-principles">
+        <li>
+          <span class="p-num">01</span>
+          <span>The collective will not accept commissions that conflict with its values.</span>
+        </li>
+        <li>
+          <span class="p-num">02</span>
+          <span>Members retain full copyright and ownership of all work at all times.</span>
+        </li>
+        <li>
+          <span class="p-num">03</span>
+          <span>Decisions affecting the collective are made by consensus among active members.</span>
+        </li>
+        <li>
+          <span class="p-num">04</span>
+          <span>New members are invited by existing members based on quality and ethos of work.</span>
+        </li>
+        <li>
+          <span class="p-num">05</span>
+          <span>Any commercial income is distributed transparently and agreed collectively.</span>
+        </li>
+      </ul>
     </div>
   </section>
 
   <!-- MEETUP -->
   <section id="meetup" class="meetup">
     <div>
-      <h2>Monthly<br><span>Meetup</span></h2>
+      <h2>Monthly<span>Meetup</span></h2>
       <p>We meet once a month in Perth. A projector, some pints, and honest conversation about photography and the work we're making. Attendance at monthly meetings is open to anyone with a genuine interest in the documentary and street traditions.</p>
       <p>Membership is selective rather than open. Prospective members show work and are invited in by existing members. This is how we maintain a shared standard and a coherent collective voice.</p>
     </div>
@@ -571,12 +615,10 @@
   <!-- CONTACT -->
   <section id="contact" class="contact-section">
     <div>
-      <h2>Get in<br><span>touch.</span></h2>
+      <h2>Get in<span> touch.</span></h2>
       <p>Whether you're interested in attending a meetup, applying for membership, or discussing a commission — we'd like to hear from you.</p>
       <ul class="contact-links">
-        <li>
-          <span class="contact-link-label">Use the form</span>
-        </li>
+        <li><span class="contact-link-label">Use the form</span></li>
         <li>
           <span class="contact-link-label">Instagram</span>
           <a href="https://www.instagram.com/pavementphotos/" class="contact-link-val">@pavementphotos</a>
