@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pavement Photos</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -82,38 +83,7 @@
     position: relative;
     overflow: hidden;
     border-bottom: var(--rule-dark);
-  }
-
-  .hero-image::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(
-      0deg, transparent, transparent 3px,
-      rgba(0,0,0,0.015) 3px, rgba(0,0,0,0.015) 4px
-    );
-    pointer-events: none;
-  }
-
-  .hero-image::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at center, rgba(240,236,228,0.1) 0%, rgba(200,192,180,0.25) 100%);
-  }
-
-  .hero-placeholder-text {
-    font-size: 0.6rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--mid-grey);
-    z-index: 1;
-    text-align: center;
-    line-height: 2;
-  }
-  .hero-placeholder-text strong {
-    display: block;
-    font-size: 0.5rem;
-    color: #c0b8ae;
-    margin-top: 0.5rem;
+	max-height: 50vh;
   }
 
   .hero-caption {
@@ -125,9 +95,11 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+	
   }
-  .hero-caption-text { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm-grey); font-style: italic; }
-  .hero-caption-counter { font-size: 0.6rem; letter-spacing: 0.1em; color: var(--mid-grey); }
+  .hero-caption-text { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bg); font-style: italic; }
+  
+  .hero-caption-counter { font-size: 0.6rem; letter-spacing: 0.1em; color: var(--bg); }
 
   /* TICKER */
   .ticker {
@@ -310,16 +282,18 @@
 
 <!-- HERO -->
 <div class="hero fade-up">
-  <div class="hero-image">
-    <div class="hero-placeholder-text">
-      Hero Image — 3:2 Landscape
-      <strong>1800 × 1200px recommended</strong>
-    </div>
-    <div class="hero-caption">
-      <span class="hero-caption-text">Featured work — member name, location, year</span>
-      <span class="hero-caption-counter">01 / 01</span>
-    </div>
+<div class="hero-image">
+
+  <img src="images/hero.avif" alt="Hero image, kids playing basketball in westside Chicago"
+       style="width:100%;height:100%;object-fit:cover;
+              object-position:center;display:block;">
+
+  <div class="hero-caption">
+    <span class="hero-caption-text">Drew Death — Portland, 2021</span>
+    <span class="hero-caption-counter">01 / 01</span>
   </div>
+
+</div>
 </div>
 
 <!-- TICKER -->
@@ -364,31 +338,56 @@
       <span class="section-count">6 of 48</span>
     </div>
     <div class="photo-grid">
-      <div class="photo-cell">
-        <div class="photo-cell-inner"><span class="photo-cell-num">01</span><span class="photo-cell-label">4:3 · 1200 × 900px</span></div>
-        <div class="photo-cell-meta"><span>Member Name</span><span>Perth, 2026</span></div>
-      </div>
-      <div class="photo-cell">
-        <div class="photo-cell-inner"><span class="photo-cell-num">02</span><span class="photo-cell-label">4:3 · 1200 × 900px</span></div>
-        <div class="photo-cell-meta"><span>Member Name</span><span>Perth, 2026</span></div>
-      </div>
-      <div class="photo-cell">
-        <div class="photo-cell-inner"><span class="photo-cell-num">03</span><span class="photo-cell-label">4:3 · 1200 × 900px</span></div>
-        <div class="photo-cell-meta"><span>Member Name</span><span>Perth, 2026</span></div>
-      </div>
-      <div class="photo-cell">
-        <div class="photo-cell-inner"><span class="photo-cell-num">04</span><span class="photo-cell-label">4:3 · 1200 × 900px</span></div>
-        <div class="photo-cell-meta"><span>Member Name</span><span>Perth, 2026</span></div>
-      </div>
-      <div class="photo-cell">
-        <div class="photo-cell-inner"><span class="photo-cell-num">05</span><span class="photo-cell-label">4:3 · 1200 × 900px</span></div>
-        <div class="photo-cell-meta"><span>Member Name</span><span>Perth, 2026</span></div>
-      </div>
-      <div class="photo-cell">
-        <div class="photo-cell-inner"><span class="photo-cell-num">06</span><span class="photo-cell-label">4:3 · 1200 × 900px</span></div>
-        <div class="photo-cell-meta"><span>Member Name</span><span>Perth, 2026</span></div>
-      </div>
+
+  <div class="photo-cell">
+    <img src="images/1.avif" alt="Drew Death, Chicago 2021"
+         style="width:100%;height:100%;object-fit:cover;display:block;">
+    <div class="photo-cell-meta">
+      <span>Drew Death</span><span>Chicago, 2021</span>
     </div>
+  </div>
+
+  <div class="photo-cell">
+    <img src="images/2.avif" alt="Drew Death, Glasgow 2025"
+         style="width:100%;height:100%;object-fit:cover;display:block;">
+    <div class="photo-cell-meta">
+      <span>Drew Death</span><span>Glasgow, 2025</span>
+    </div>
+  </div>
+
+  <div class="photo-cell">
+    <img src="images/3.avif" alt="Drew Death, Perth 2025"
+         style="width:100%;height:100%;object-fit:cover;display:block;">
+    <div class="photo-cell-meta">
+      <span>Drew Death</span><span>Perth, 2025</span>
+    </div>
+  </div>
+
+  <div class="photo-cell">
+    <img src="images/4.avif" alt="Drew Death, Portland 2021"
+         style="width:100%;height:100%;object-fit:cover;display:block;">
+    <div class="photo-cell-meta">
+      <span>Drew Death</span><span>Portland, 2021</span>
+    </div>
+  </div>
+
+  <div class="photo-cell">
+    <img src="images/5.avif" alt="Drew Death, Spain 2023"
+         style="width:100%;height:100%;object-fit:cover;display:block;">
+    <div class="photo-cell-meta">
+      <span>Drew Death</span><span>Spain, 2023</span>
+    </div>
+  </div>
+
+  <div class="photo-cell">
+    <img src="images/6.avif" alt="Drew Death, Portland 2022"
+         style="width:100%;height:100%;object-fit:cover;display:block;">
+    <div class="photo-cell-meta">
+      <span>Drew Death</span><span>Portland, 2022</span>
+    </div>
+  </div>
+
+</div>
   </section>
 
   <!-- ABOUT -->
@@ -417,27 +416,44 @@
       <span class="section-count">Founding cohort</span>
     </div>
     <div class="members-grid">
-      <div class="member-card">
-        <div class="member-avatar"><span>01</span></div>
-        <div class="member-name">Member Name</div>
-        <div class="member-focus">Street · Documentary</div>
-      </div>
-      <div class="member-card">
-        <div class="member-avatar"><span>02</span></div>
-        <div class="member-name">Member Name</div>
-        <div class="member-focus">Photojournalism</div>
-      </div>
-      <div class="member-card">
-        <div class="member-avatar"><span>03</span></div>
-        <div class="member-name">Member Name</div>
-        <div class="member-focus">Environmental Portrait</div>
-      </div>
-      <div class="member-card">
-        <div class="member-avatar"><span>04</span></div>
-        <div class="member-name">Member Name</div>
-        <div class="member-focus">Urban Architecture</div>
-      </div>
+
+  <div class="member-card">
+    <div class="member-avatar">
+      <img src="images/member1.jpg" alt="Member Name"
+           style="width:100%;height:100%;object-fit:cover;display:block;">
     </div>
+    <div class="member-name">Drew Death</div>
+    <div class="member-focus">Street · Documentary</div>
+  </div>
+
+  <div class="member-card">
+    <div class="member-avatar">
+      <img src="images/member2.jpg" alt="Member Name"
+           style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div class="member-name">Member Name?</div>
+    <div class="member-focus">Photojournalism?</div>
+  </div>
+
+  <div class="member-card">
+    <div class="member-avatar">
+      <img src="images/member2.jpg" alt="Member Name"
+           style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div class="member-name">Member Name?</div>
+    <div class="member-focus">Environmental Portrait?</div>
+  </div>
+
+  <div class="member-card">
+    <div class="member-avatar">
+      <img src="images/member2.jpg" alt="Member Name"
+           style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+    <div class="member-name">Member Name?</div>
+    <div class="member-focus">Urban Architecture?</div>
+  </div>
+
+</div>
   </section>
 
   <!-- MEETUP -->
