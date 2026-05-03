@@ -299,7 +299,8 @@
 <nav>
   <a href="#" class="nav-wordmark">Pavement<span>.</span></a>
   <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
+    <li><a href="#mission">Mission</a></li>
+	<li><a href="#work">Work</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#members">Members</a></li>
     <li><a href="#meetup">Meetup</a></li>
@@ -348,7 +349,7 @@
 <main>
 
   <!-- STATEMENT -->
-  <section class="statement fade-up delay-1">
+  <section id="mission" class="statement fade-up delay-1">
     <div class="statement-label">Mission</div>
     <div class="statement-body">
       <h1>Photography<br>from the<br><em>street up.</em></h1>
@@ -473,12 +474,11 @@
       <p>Whether you're interested in attending a meetup, applying for membership, or discussing a commission — we'd like to hear from you.</p>
       <ul class="contact-links">
         <li>
-          <span class="contact-link-label">Email</span>
-          <a href="mailto:" class="contact-link-val"></a>
+          <span class="contact-link-label">Use the form →</span>
         </li>
         <li>
           <span class="contact-link-label">Instagram</span>
-          <a href="#" class="contact-link-val">@pavementphotos</a>
+          <a href="https://www.instagram.com/pavementphotos/" class="contact-link-val">@pavementphotos</a>
         </li>
         <li>
           <span class="contact-link-label">Based</span>
@@ -486,13 +486,32 @@
         </li>
       </ul>
     </div>
-    <div class="contact-form-side">
-      <input type="text" placeholder="Your name">
-      <input type="email" placeholder="Your email">
-      <input type="text" placeholder="Subject — Meetup / Membership / Commission">
-      <textarea placeholder="Message"></textarea>
-      <button class="submit-btn">Send message</button>
-    </div>
+<form action="https://formspree.io/f/xkoyovyb"
+      method="POST">
+  <div class="contact-form-side">
+    <input type="text"
+           name="name"
+           placeholder="Your name"
+           required>
+    <input type="email"
+           name="email"
+           placeholder="Your email"
+           required>
+    <input type="text"
+           name="subject"
+           placeholder="Subject — Meetup / Membership / Commission">
+    <textarea name="message"
+              placeholder="Message"
+              required></textarea>
+    <!-- Honeypot — catches bots, leave hidden -->
+    <input type="text"
+           name="_gotcha"
+           style="display:none">
+    <button type="submit" class="submit-btn">Send message</button>
+
+  </div>
+
+</form>
   </section>
 
 </main>
