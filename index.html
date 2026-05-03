@@ -32,9 +32,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { font-size: 16px; scroll-behavior: smooth; }
-
   body {
     background: var(--bg);
     color: var(--ink);
@@ -43,34 +41,54 @@
     letter-spacing: 0.01em;
     overflow-x: hidden;
   }
+  section[id], div[id] { scroll-margin-top: 60px; }
 
-  section[id], div[id] { scroll-margin-top: 72px; }
-
-  /* NAV */
+  /* ─── NAV ─── */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    padding: 1.5rem 2.5rem 1rem;
+    align-items: center;
+    padding: 1rem 1.5rem;
     border-bottom: var(--rule-dark);
     background: rgba(240,236,228,0.96);
     backdrop-filter: blur(6px);
   }
-
   .nav-wordmark {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.6rem;
     letter-spacing: 0.12em;
     color: var(--ink);
     text-decoration: none;
+    flex-shrink: 0;
   }
   .nav-wordmark span { color: var(--accent); }
 
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  /* Hamburger button — hidden on desktop */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 101;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--ink);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.65rem;
@@ -82,9 +100,8 @@
   }
   .nav-links a:hover { color: var(--ink); }
 
-  /* HERO */
-  .hero { margin-top: 60px; position: relative; width: 100%; }
-
+  /* ─── HERO ─── */
+  .hero { margin-top: 56px; position: relative; width: 100%; }
   .hero-image {
     width: 100%;
     aspect-ratio: 3 / 2;
@@ -95,9 +112,8 @@
     position: relative;
     overflow: hidden;
     border-bottom: var(--rule-dark);
-	max-height: 50vh;
+    max-height: 50vh;
   }
-
   .hero-caption {
     position: absolute;
     bottom: 0; left: 0; right: 0;
@@ -107,13 +123,11 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-	
   }
   .hero-caption-text { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bg); font-style: italic; }
-  
   .hero-caption-counter { font-size: 0.6rem; letter-spacing: 0.1em; color: var(--bg); }
 
-  /* TICKER */
+  /* ─── TICKER ─── */
   .ticker {
     border-bottom: var(--rule-dark);
     padding: 0.65rem 0;
@@ -124,16 +138,15 @@
   .ticker-inner { display: inline-block; animation: ticker 30s linear infinite; }
   .ticker-inner span { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-grey); padding: 0 2rem; }
   .ticker-inner span.sep { color: var(--accent); padding: 0; }
-
   @keyframes ticker {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
 
-  /* MAIN */
+  /* ─── MAIN ─── */
   main { max-width: 1400px; margin: 0 auto; padding: 0 2.5rem; }
 
-  /* STATEMENT */
+  /* ─── STATEMENT ─── */
   .statement {
     padding: 6rem 0 5rem;
     display: grid;
@@ -156,14 +169,13 @@
     max-width: 60ch; font-family: 'Libre Baskerville', serif; font-style: italic;
   }
 
-  /* SECTION HEADER */
+  /* ─── SECTION HEADER ─── */
   .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2.5rem; }
   .section-title { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--warm-grey); }
   .section-count { font-size: 0.55rem; letter-spacing: 0.15em; color: var(--mid-grey); }
 
-  /* WORK */
+  /* ─── WORK ─── */
   .work-section { padding: 5rem 0; border-bottom: var(--rule); }
-
   .photo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -180,50 +192,32 @@
     cursor: pointer; transition: background 0.3s;
   }
   .photo-cell:hover { background: #ddd5c8; }
-  .photo-cell::before {
-    content: ''; position: absolute; inset: 0;
-    background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0,0,0,0.018) 20px, rgba(0,0,0,0.018) 21px);
-  }
-  .photo-cell-inner { text-align: center; z-index: 1; }
-  .photo-cell-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: #c8c0b4; line-height: 1; display: block; margin-bottom: 0.5rem; }
-  .photo-cell-label { font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: #b8b0a8; }
   .photo-cell-meta { position: absolute; bottom: 0.75rem; left: 0.75rem; right: 0.75rem; display: flex; justify-content: space-between; opacity: 0; transition: opacity 0.3s; }
   .photo-cell:hover .photo-cell-meta { opacity: 1; }
   .photo-cell-meta span { font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--warm-grey); }
 
-  /* ABOUT */
+  /* ─── ABOUT ─── */
   .ethos { padding: 5rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; border-bottom: var(--rule); }
   .ethos-left p { font-family: 'Libre Baskerville', serif; font-size: 0.9rem; line-height: 1.9; color: var(--warm-grey); font-style: italic; margin-bottom: 1.5rem; }
-  .ethos-left h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
-  .ethos-left h2 span { display: block; color: var(--accent); }
+  .ethos-left h2,
   .ethos-right h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
+  .ethos-left h2 span,
   .ethos-right h2 span { display: block; color: var(--accent); }
   .ethos-principles { list-style: none; margin-top: 3rem; }
   .ethos-principles li { display: flex; gap: 1rem; padding: 1rem 0; border-top: var(--rule); font-size: 0.7rem; line-height: 1.6; color: var(--warm-grey); letter-spacing: 0.03em; }
   .ethos-principles li::before { content: attr(data-n); font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--mid-grey); flex-shrink: 0; line-height: 1.2; }
 
-
-  /* MEMBERS */
+  /* ─── MEMBERS ─── */
   .members-section { padding: 5rem 0; border-bottom: var(--rule); }
   .members-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule-dark); border: var(--rule-dark); margin-top: 2.5rem; }
   .member-card { background: var(--bg); padding: 1.5rem; transition: background 0.2s; }
   .member-card:hover { background: var(--light-grey); }
-  .member-avatar {
-    width: 100%; aspect-ratio: 1;
-    background: var(--light-grey);
-    margin-bottom: 1rem;
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-  }
-  .member-avatar::before {
-    content: ''; position: absolute; inset: 0;
-    background: repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(0,0,0,0.02) 8px, rgba(0,0,0,0.02) 9px);
-  }
+  .member-avatar { width: 100%; aspect-ratio: 1; background: var(--light-grey); margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
   .member-avatar span { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--mid-grey); z-index: 1; }
   .member-name { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 0.25rem; }
   .member-focus { font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
 
-  /* MEETUP */
+  /* ─── MEETUP ─── */
   .meetup { padding: 5rem 0; display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; border-bottom: var(--rule); align-items: start; }
   .meetup h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
   .meetup h2 span { display: block; color: var(--accent); }
@@ -234,7 +228,7 @@
   .meetup-detail-key { font-size: 0.5rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); }
   .meetup-detail-val { font-size: 0.75rem; color: var(--ink); letter-spacing: 0.05em; }
 
-  /* CONTACT */
+  /* ─── CONTACT ─── */
   .contact-section { padding: 5rem 0; border-bottom: var(--rule); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
   .contact-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3vw, 3rem); letter-spacing: 0.05em; color: var(--ink); margin-bottom: 1.5rem; }
   .contact-section h2 span { color: var(--accent); }
@@ -267,48 +261,157 @@
   }
   .submit-btn:hover { background: var(--accent); border-color: var(--accent); }
 
-  /* FOOTER */
+  /* ─── FOOTER ─── */
   footer { padding: 2.5rem 2.5rem; display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; }
   .footer-wordmark { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.15em; color: var(--mid-grey); }
   .footer-wordmark span { color: var(--accent); opacity: 0.6; }
   .footer-copy { font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid-grey); }
 
-  /* FADE IN */
+  /* ─── FADE IN ─── */
   .fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease forwards; }
   @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
   .delay-1 { animation-delay: 0.1s; }
   .delay-2 { animation-delay: 0.25s; }
   .delay-3 { animation-delay: 0.4s; }
+
+
+  /* ════════════════════════════════════════
+     MOBILE BREAKPOINTS
+  ════════════════════════════════════════ */
+
+  @media (max-width: 768px) {
+
+    /* NAV — hamburger menu */
+    .nav-toggle { display: flex; }
+
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 56px; left: 0; right: 0;
+      background: rgba(240,236,228,0.98);
+      backdrop-filter: blur(6px);
+      flex-direction: column;
+      gap: 0;
+      border-bottom: var(--rule-dark);
+      z-index: 99;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { border-top: var(--rule); }
+    .nav-links a {
+      display: block;
+      padding: 1.1rem 1.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+    }
+
+    /* MAIN padding */
+    main { padding: 0 1.25rem; }
+
+    /* HERO */
+    .hero { margin-top: 56px; }
+    .hero-image { max-height: 40vh; }
+    .hero-caption { padding: 1rem 1.25rem; }
+    .hero-caption-text { font-size: 0.5rem; }
+
+    /* STATEMENT — single column */
+    .statement {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 3rem 0 2.5rem;
+    }
+    .statement-body h1 { font-size: clamp(2.5rem, 10vw, 3.5rem); margin-bottom: 1.25rem; }
+    .statement-body p { font-size: 0.8rem; }
+
+    /* WORK — 2 columns on mobile */
+    .work-section { padding: 3rem 0; }
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .photo-cell-meta { opacity: 1; } /* always visible on touch */
+
+    /* ABOUT — single column */
+    .ethos {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 3rem 0;
+    }
+
+    /* MEMBERS — 2 columns */
+    .members-section { padding: 3rem 0; }
+    .members-grid { grid-template-columns: repeat(2, 1fr); }
+    .member-card { padding: 1rem; }
+    .member-name { font-size: 0.85rem; }
+
+    /* MEETUP — single column */
+    .meetup {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 3rem 0;
+    }
+    .meetup-detail-row { padding: 1.25rem 0; }
+
+    /* CONTACT — single column */
+    .contact-section {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding: 3rem 0;
+    }
+    .submit-btn { width: 100%; text-align: center; }
+
+    /* FOOTER — stacked */
+    footer {
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: center;
+      padding: 2rem 1.25rem;
+    }
+  }
+
+  /* Slightly wider tablets — keep 2-col but tighten */
+  @media (max-width: 1024px) and (min-width: 769px) {
+    main { padding: 0 1.75rem; }
+
+    .statement { grid-template-columns: 1fr 2fr; gap: 2rem; }
+
+    .ethos { gap: 3rem; }
+
+    .members-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .meetup { grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+    .contact-section { gap: 3rem; }
+
+    nav { padding: 1rem 1.75rem; }
+  }
 </style>
 </head>
 <body>
 
 <nav>
   <a href="#" class="nav-wordmark">Pavement<span>.</span></a>
+
+  <button class="nav-toggle" aria-label="Toggle menu" onclick="this.classList.toggle('open'); document.querySelector('.nav-links').classList.toggle('open');">
+    <span></span><span></span><span></span>
+  </button>
+
   <ul class="nav-links">
-    <li><a href="#mission">Mission</a></li>
-	<li><a href="#work">Work</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#members">Members</a></li>
-    <li><a href="#meetup">Meetup</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#mission" onclick="document.querySelector('.nav-links').classList.remove('open'); document.querySelector('.nav-toggle').classList.remove('open');">Mission</a></li>
+    <li><a href="#work" onclick="document.querySelector('.nav-links').classList.remove('open'); document.querySelector('.nav-toggle').classList.remove('open');">Work</a></li>
+    <li><a href="#about" onclick="document.querySelector('.nav-links').classList.remove('open'); document.querySelector('.nav-toggle').classList.remove('open');">About</a></li>
+    <li><a href="#members" onclick="document.querySelector('.nav-links').classList.remove('open'); document.querySelector('.nav-toggle').classList.remove('open');">Members</a></li>
+    <li><a href="#meetup" onclick="document.querySelector('.nav-links').classList.remove('open'); document.querySelector('.nav-toggle').classList.remove('open');">Meetup</a></li>
+    <li><a href="#contact" onclick="document.querySelector('.nav-links').classList.remove('open'); document.querySelector('.nav-toggle').classList.remove('open');">Contact</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <div class="hero fade-up">
-<div class="hero-image">
-
-  <img src="images/hero.avif" alt="Hero image, kids playing basketball in westside Chicago"
-       style="width:100%;height:100%;object-fit:cover;
-              object-position:center;display:block;">
-
-  <div class="hero-caption">
-    <span class="hero-caption-text">Drew Death — Portland, 2021</span>
-    <span class="hero-caption-counter">01 / 01</span>
+  <div class="hero-image">
+    <img src="images/hero.avif" alt="Hero image, kids playing basketball in westside Chicago"
+         style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+    <div class="hero-caption">
+      <span class="hero-caption-text">Drew Death — Portland, 2021</span>
+      <span class="hero-caption-counter">01 / 01</span>
+    </div>
   </div>
-
-</div>
 </div>
 
 <!-- TICKER -->
@@ -354,76 +457,75 @@
     </div>
     <div class="photo-grid">
 
-  <div class="photo-cell">
-    <img src="images/1.avif" alt="Drew Death, Chicago 2021"
-         style="width:100%;height:100%;object-fit:cover;display:block;">
-    <div class="photo-cell-meta">
-      <span>Drew Death</span><span>Chicago, 2021</span>
-    </div>
-  </div>
+      <div class="photo-cell">
+        <img src="images/1.avif" alt="Drew Death, Chicago 2021"
+             style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="photo-cell-meta">
+          <span>Drew Death</span><span>Chicago, 2021</span>
+        </div>
+      </div>
 
-  <div class="photo-cell">
-    <img src="images/2.avif" alt="Drew Death, Glasgow 2025"
-         style="width:100%;height:100%;object-fit:cover;display:block;">
-    <div class="photo-cell-meta">
-      <span>Drew Death</span><span>Glasgow, 2025</span>
-    </div>
-  </div>
+      <div class="photo-cell">
+        <img src="images/2.avif" alt="Drew Death, Glasgow 2025"
+             style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="photo-cell-meta">
+          <span>Drew Death</span><span>Glasgow, 2025</span>
+        </div>
+      </div>
 
-  <div class="photo-cell">
-    <img src="images/3.avif" alt="Drew Death, Perth 2025"
-         style="width:100%;height:100%;object-fit:cover;display:block;">
-    <div class="photo-cell-meta">
-      <span>Drew Death</span><span>Perth, 2025</span>
-    </div>
-  </div>
+      <div class="photo-cell">
+        <img src="images/3.avif" alt="Drew Death, Perth 2025"
+             style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="photo-cell-meta">
+          <span>Drew Death</span><span>Perth, 2025</span>
+        </div>
+      </div>
 
-  <div class="photo-cell">
-    <img src="images/4.avif" alt="Drew Death, Portland 2021"
-         style="width:100%;height:100%;object-fit:cover;display:block;">
-    <div class="photo-cell-meta">
-      <span>Drew Death</span><span>Portland, 2021</span>
-    </div>
-  </div>
+      <div class="photo-cell">
+        <img src="images/4.avif" alt="Drew Death, Portland 2021"
+             style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="photo-cell-meta">
+          <span>Drew Death</span><span>Portland, 2021</span>
+        </div>
+      </div>
 
-  <div class="photo-cell">
-    <img src="images/5.avif" alt="Drew Death, Spain 2023"
-         style="width:100%;height:100%;object-fit:cover;display:block;">
-    <div class="photo-cell-meta">
-      <span>Drew Death</span><span>Spain, 2023</span>
-    </div>
-  </div>
+      <div class="photo-cell">
+        <img src="images/5.avif" alt="Drew Death, Spain 2023"
+             style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="photo-cell-meta">
+          <span>Drew Death</span><span>Spain, 2023</span>
+        </div>
+      </div>
 
-  <div class="photo-cell">
-    <img src="images/6.avif" alt="Drew Death, Portland 2022"
-         style="width:100%;height:100%;object-fit:cover;display:block;">
-    <div class="photo-cell-meta">
-      <span>Drew Death</span><span>Portland, 2022</span>
-    </div>
-  </div>
+      <div class="photo-cell">
+        <img src="images/6.avif" alt="Drew Death, Portland 2022"
+             style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="photo-cell-meta">
+          <span>Drew Death</span><span>Portland, 2022</span>
+        </div>
+      </div>
 
-</div>
+    </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="ethos fade-up delay-3">
     <div class="ethos-left">
-	 <h2>Our<br><span>Story.</span></h2><br>
+      <h2>Our<br><span>Story.</span></h2><br>
       <p>We draw on a long tradition of photographers who pointed their cameras at the <strong>real world</strong> — from the earliest Scottish documentary work to the cooperative model pioneered by Magnum Photos.</p>
       <p>Photography is a form of <strong>witness</strong>, and that witness is a political act. Our members work across street photography, documentary, photojournalism, environmental portraiture, and long-form storytelling.</p>
       <p>We are on the side of people over profit, place over development, the overlooked over the celebrated.</p>
     </div>
-	<div class="ethos-right">
+    <div class="ethos-right">
       <h2>Our<br><span>Principles.</span></h2>
       <ul class="ethos-principles">
         <li data-n="01">The collective will not accept commissions that conflict with its values.</li>
-		<li data-n="02">Members retain full copyright and ownership of all work at all times.</li>
+        <li data-n="02">Members retain full copyright and ownership of all work at all times.</li>
         <li data-n="03">Decisions affecting the collective are made by consensus among active members.</li>
         <li data-n="04">New members are invited by existing members based on quality and ethos of work.</li>
         <li data-n="05">Any commercial income is distributed transparently and agreed collectively.</li>
       </ul>
     </div>
-
   </section>
 
   <!-- MEMBERS -->
@@ -434,43 +536,43 @@
     </div>
     <div class="members-grid">
 
-  <div class="member-card">
-    <div class="member-avatar">
-      <img src="images/member1.jpg" alt="Member Name"
-           style="width:100%;height:100%;object-fit:cover;display:block;">
-    </div>
-    <div class="member-name">Drew Death</div>
-    <div class="member-focus">Street · Documentary</div>
-  </div>
+      <div class="member-card">
+        <div class="member-avatar">
+          <img src="images/member1.jpg" alt="Drew Death"
+               style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="member-name">Drew Death</div>
+        <div class="member-focus">Street · Documentary</div>
+      </div>
 
-  <div class="member-card">
-    <div class="member-avatar">
-      <img src="images/member2.jpg" alt="Member Name"
-           style="width:100%;height:100%;object-fit:cover;display:block;">
-    </div>
-    <div class="member-name">Member Name?</div>
-    <div class="member-focus">Photojournalism?</div>
-  </div>
+      <div class="member-card">
+        <div class="member-avatar">
+          <img src="images/member2.jpg" alt="Member Name"
+               style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="member-name">Member Name?</div>
+        <div class="member-focus">Photojournalism?</div>
+      </div>
 
-  <div class="member-card">
-    <div class="member-avatar">
-      <img src="images/member2.jpg" alt="Member Name"
-           style="width:100%;height:100%;object-fit:cover;display:block;">
-    </div>
-    <div class="member-name">Member Name?</div>
-    <div class="member-focus">Environmental Portrait?</div>
-  </div>
+      <div class="member-card">
+        <div class="member-avatar">
+          <img src="images/member2.jpg" alt="Member Name"
+               style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="member-name">Member Name?</div>
+        <div class="member-focus">Environmental Portrait?</div>
+      </div>
 
-  <div class="member-card">
-    <div class="member-avatar">
-      <img src="images/member2.jpg" alt="Member Name"
-           style="width:100%;height:100%;object-fit:cover;display:block;">
-    </div>
-    <div class="member-name">Member Name?</div>
-    <div class="member-focus">Urban Architecture?</div>
-  </div>
+      <div class="member-card">
+        <div class="member-avatar">
+          <img src="images/member2.jpg" alt="Member Name"
+               style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <div class="member-name">Member Name?</div>
+        <div class="member-focus">Urban Architecture?</div>
+      </div>
 
-</div>
+    </div>
   </section>
 
   <!-- MEETUP -->
@@ -507,7 +609,7 @@
       <p>Whether you're interested in attending a meetup, applying for membership, or discussing a commission — we'd like to hear from you.</p>
       <ul class="contact-links">
         <li>
-          <span class="contact-link-label">Use the form →</span>
+          <span class="contact-link-label">Use the form</span>
         </li>
         <li>
           <span class="contact-link-label">Instagram</span>
@@ -519,32 +621,16 @@
         </li>
       </ul>
     </div>
-<form action="https://formspree.io/f/xkoyovyb"
-      method="POST">
-  <div class="contact-form-side">
-    <input type="text"
-           name="name"
-           placeholder="Your name"
-           required>
-    <input type="email"
-           name="email"
-           placeholder="Your email"
-           required>
-    <input type="text"
-           name="subject"
-           placeholder="Subject — Meetup / Membership / Commission">
-    <textarea name="message"
-              placeholder="Message"
-              required></textarea>
-    <!-- Honeypot — catches bots, leave hidden -->
-    <input type="text"
-           name="_gotcha"
-           style="display:none">
-    <button type="submit" class="submit-btn">Send message</button>
-
-  </div>
-
-</form>
+    <form action="https://formspree.io/f/xkoyovyb" method="POST">
+      <div class="contact-form-side">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <input type="text" name="subject" placeholder="Subject — Meetup / Membership / Commission">
+        <textarea name="message" placeholder="Message" required></textarea>
+        <input type="text" name="_gotcha" style="display:none">
+        <button type="submit" class="submit-btn">Send message</button>
+      </div>
+    </form>
   </section>
 
 </main>
