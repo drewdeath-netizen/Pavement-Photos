@@ -193,13 +193,15 @@
 
   /* ABOUT */
   .ethos { padding: 5rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; border-bottom: var(--rule); }
+  .ethos-left p { font-family: 'Libre Baskerville', serif; font-size: 0.9rem; line-height: 1.9; color: var(--warm-grey); font-style: italic; margin-bottom: 1.5rem; }
   .ethos-left h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
   .ethos-left h2 span { display: block; color: var(--accent); }
+  .ethos-right h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
+  .ethos-right h2 span { display: block; color: var(--accent); }
   .ethos-principles { list-style: none; margin-top: 3rem; }
   .ethos-principles li { display: flex; gap: 1rem; padding: 1rem 0; border-top: var(--rule); font-size: 0.7rem; line-height: 1.6; color: var(--warm-grey); letter-spacing: 0.03em; }
   .ethos-principles li::before { content: attr(data-n); font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--mid-grey); flex-shrink: 0; line-height: 1.2; }
-  .ethos-right p { font-family: 'Libre Baskerville', serif; font-size: 0.9rem; line-height: 1.9; color: var(--warm-grey); font-style: italic; margin-bottom: 1.5rem; }
-  .ethos-right p strong { font-style: normal; color: var(--ink); font-weight: 400; }
+
 
   /* MEMBERS */
   .members-section { padding: 5rem 0; border-bottom: var(--rule); }
@@ -223,10 +225,11 @@
 
   /* MEETUP */
   .meetup { padding: 5rem 0; display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; border-bottom: var(--rule); align-items: start; }
-  .meetup h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3vw, 3rem); letter-spacing: 0.05em; margin-bottom: 1.5rem; color: var(--ink); }
+  .meetup h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
+  .meetup h2 span { display: block; color: var(--accent); }
   .meetup p { font-size: 0.75rem; line-height: 1.8; color: var(--warm-grey); margin-bottom: 1rem; max-width: 55ch; }
   .meetup-detail { background: var(--light-grey); border: var(--rule-dark); padding: 2rem; }
-  .meetup-detail-row { padding: 0.75rem 0; border-bottom: var(--rule); display: flex; flex-direction: column; gap: 0.25rem; }
+  .meetup-detail-row { padding: 1.75rem 0; border-bottom: var(--rule); display: flex; flex-direction: column; gap: 0.25rem; }
   .meetup-detail-row:last-child { border-bottom: none; }
   .meetup-detail-key { font-size: 0.5rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); }
   .meetup-detail-val { font-size: 0.75rem; color: var(--ink); letter-spacing: 0.05em; }
@@ -405,20 +408,22 @@
   <!-- ABOUT -->
   <section id="about" class="ethos fade-up delay-3">
     <div class="ethos-left">
-      <h2>What we<br>stand<br><span>for.</span></h2>
-      <ul class="ethos-principles">
-        <li data-n="01">Members retain full copyright and ownership of all work at all times.</li>
-        <li data-n="02">Decisions affecting the collective are made by consensus among active members.</li>
-        <li data-n="03">New members are invited by existing members based on quality and ethos of work.</li>
-        <li data-n="04">The collective will not accept commissions that conflict with its values.</li>
-        <li data-n="05">Any commercial income is distributed transparently and agreed collectively.</li>
-      </ul>
-    </div>
-    <div class="ethos-right">
+	 <h2>Our<br><span>Story.</span></h2><br>
       <p>We draw on a long tradition of photographers who pointed their cameras at the <strong>real world</strong> — from the earliest Scottish documentary work to the cooperative model pioneered by Magnum Photos.</p>
       <p>Photography is a form of <strong>witness</strong>, and that witness is a political act. Our members work across street photography, documentary, photojournalism, environmental portraiture, and long-form storytelling.</p>
       <p>We are on the side of people over profit, place over development, the overlooked over the celebrated.</p>
     </div>
+	<div class="ethos-right">
+      <h2>Our<br><span>Principles.</span></h2>
+      <ul class="ethos-principles">
+        <li data-n="01">The collective will not accept commissions that conflict with its values.</li>
+		<li data-n="02">Members retain full copyright and ownership of all work at all times.</li>
+        <li data-n="03">Decisions affecting the collective are made by consensus among active members.</li>
+        <li data-n="04">New members are invited by existing members based on quality and ethos of work.</li>
+        <li data-n="05">Any commercial income is distributed transparently and agreed collectively.</li>
+      </ul>
+    </div>
+
   </section>
 
   <!-- MEMBERS -->
@@ -471,9 +476,9 @@
   <!-- MEETUP -->
   <section id="meetup" class="meetup">
     <div>
-      <h2>Monthly Meetup</h2>
+      <h2>Monthly<br><span>Meetup</span></h2>
       <p>We meet once a month in Perth. A projector, some pints, and honest conversation about photography and the work we're making. Attendance at monthly meetings is open to anyone with a genuine interest in the documentary and street traditions.</p>
-      <p>Membership is selective rather than open. Prospective members show work and are invited in by existing members. This isn't gatekeeping — it's how we maintain a shared standard and a coherent collective voice.</p>
+      <p>Membership is selective rather than open. Prospective members show work and are invited in by existing members. This is how we maintain a shared standard and a coherent collective voice.</p>
     </div>
     <div class="meetup-detail">
       <div class="meetup-detail-row">
