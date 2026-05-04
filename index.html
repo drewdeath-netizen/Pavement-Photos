@@ -24,10 +24,10 @@
 <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 <style>
   :root {
-    --bg: #FAFAF8;
+    --bg: #fafaf8;
     --ink: #0a0a0a;
     --warm-grey: #6a6058;
-    --mid-grey: #777777;
+    --mid-grey: #c8c0b4;
     --light-grey: #d3d3d3;
     --accent: #c8401a;
 	--accent2: #c8401a;
@@ -76,10 +76,10 @@
   main { max-width: 1400px; margin: 0 auto; padding: 0 2.5rem; }
 
   /* ─── STATEMENT ─── */
-  .statement { padding: 2rem 0 0; display: grid; grid-template-columns: 1fr 3fr; gap: 2rem; border-bottom: var(--rule); }
-  .statement-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); padding-top: 0.4rem; }
-  .statement-body h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); letter-spacing: 0.05em; line-height: 0.95; color: var(--ink); margin-bottom: 2rem; }
-  .statement-body h1 em { color: var(--accent); font-style: normal; }
+  .statement { padding: 5rem 0; display: grid; grid-template-columns: 1fr 3fr; gap: 5rem; border-bottom: var(--rule); align-items: center; }
+  .statement-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent);  }
+  .statement-label h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); letter-spacing: 0.05em; line-height: 0.95; color: var(--ink); }
+  .statement-label h1 em { color: var(--accent); font-style: normal; }
   .statement-body p { font-size: 0.85rem; line-height: 1.85; color: var(--warm-grey); max-width: 60ch; font-family: 'Libre Baskerville', serif; font-style: italic; margin-bottom: 1.5rem; }
 
   /* ─── SECTION HEADER ─── */
@@ -89,7 +89,7 @@
 
   /* ─── WORK ─── */
   .work-section { padding: 3rem 0; border-bottom: var(--rule); }
-  .work-section-title h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
+  .work-section-title h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(0.9rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
   .work-section-title h2 span { color: var(--accent); }
   .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule-dark); border: var(--rule-dark); }
   .photo-cell {aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s; }
@@ -107,7 +107,7 @@
 
   /* VALUES LIST — three-column grid for alignment */
   .ethos-principles { list-style: none; margin-top: 1rem; }
-  .ethos-principles li {display: grid; grid-template-columns: 2.5rem 8rem 1fr; gap: 0 0.75rem; padding: 1rem 0; border-top: var(--rule); font-size: 0.7rem; line-height: 1.6; color: var(--warm-grey); letter-spacing: 0.03em; align-items: start;
+  .ethos-principles li {display: grid; grid-template-columns: 2.5rem 7rem 1fr; gap: 0 0.75rem; padding: 1rem 0; border-top: var(--rule); font-size: 0.7rem; line-height: 1.6; color: var(--warm-grey); letter-spacing: 0.03em; align-items: start;
   }
   .ethos-principles li .val-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--mid-grey); line-height: 1.2; }
   .ethos-principles li .val-name { font-family: 'IBM Plex Mono', monospace; font-weight: 400; color: var(--ink); letter-spacing: 0.05em; padding-top: 0.05rem; }
@@ -259,7 +259,7 @@
   <div class="hero-image">
     <img src="images/hero.avif" alt="Hero image, kids playing basketball in westside Chicago"
          style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"
-		 fetchpriority=high;>
+		 fetchpriority=high>
     <div class="hero-caption">
       <span class="hero-caption-text">Drew Death — Portland, 2021</span>
       <span class="hero-caption-counter">01 / 01</span>
@@ -295,9 +295,8 @@
 
   <!-- STATEMENT -->
   <section id="statement" class="statement">
-    <div class="statement-label"></div>
+    <div class="statement-label"><h1>Photography<br>from the<br><em>street up.</em></h1></div>
     <div class="statement-body">
-      <h1>Photography<br>from the<br><em>street up.</em></h1>
       <p>Pavement Photos is a photography collective rooted in the documentary and street traditions. Urban, wild, social, environmental — unposed, unglamorous.</p>
       <p>We notice what's being ignored, point at what's uncomfortable. We give space to the people, places, and organisations doing necessary work. We are on the side of people over profit, place over development, the overlooked over the celebrated.</p>
     </div>
@@ -342,9 +341,9 @@
   <section id="about" class="ethos">
     <div class="ethos-left">
       <h2>Our <br><span>Story.</span></h2>
-      <p>Pavement Photos doesn't exist yet in the way it will. Right now it is one person, a set of values, and an open invitation. The pub conversation hasn't happened yet. This is the notice on the door.</p>
-      <p>We are a cooperative of photographers who go out into the world with a camera and come back with something true. We share work, challenge each other, and operate on the Magnum model: members own their photographs, decisions are made collectively, and the work always comes first.</p>
-	  <p>The goal is a platform for serious documentary photography — exhibitions, publications, commissioned work for organisations whose values align with ours. A place where photographers at any stage can find peers, develop practice, and get their work seen.</p>
+      <p>Pavement Photos doesn't exist yet in the way it will. Right now it is one person, a set of values, and an open invitation.  This is the notice on the door.</p>
+      <p>The goal is a platform for serious documentary photography — exhibitions, publications, and commissioned work for organisations whose values align with ours. A place where photographers can find peers, develop practice, and get their work seen.</p>
+	  <p>We will be a cooperative of photographers who go out into the world with a camera and come back with something true. We will share work, challenge each other, and operate on the Magnum model: members own their photographs, decisions are made collectively, and the work always comes first.</p>
 	  <p>We are based in Perth. We meet monthly. We are just getting started.</p>
     </div>
     <div class="ethos-right">
@@ -449,7 +448,7 @@
   <section id="meetup" class="meetup">
     <div>
       <h2>Monthly<span>Meetup</span></h2>
-      <p>We meet once a month in Perth. A projector, some pints, and honest conversation about photography and the work we're making. Attendance at monthly meetings is open to anyone with a genuine interest in the documentary and street traditions.</p>
+      <p>Ideally, we will meet once a month in Perth. A projector, some pints, and honest conversation about photography and the work we're making. Attendance at monthly meetings is open to anyone with a genuine interest in the documentary and street traditions.</p>
       <p>Membership is selective rather than open. Prospective members show work and are invited in by existing members. This is how we maintain a shared standard and a coherent collective voice.</p>
     </div>
     <div class="meetup-detail">
