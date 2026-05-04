@@ -77,10 +77,11 @@
 
   /* ─── STATEMENT ─── */
   .statement { padding: 5rem 0; display: grid; grid-template-columns: 1fr 3fr; gap: 5rem; border-bottom: var(--rule); align-items: center; }
-  .statement-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent);  }
+  .statement-label { font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent);  }
   .statement-label h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); letter-spacing: 0.05em; line-height: 0.95; color: var(--ink); }
   .statement-label h1 em { color: var(--accent); font-style: normal; }
-  .statement-body p { font-size: 0.85rem; line-height: 1.85; color: var(--warm-grey); max-width: 60ch; font-family: 'Libre Baskerville', serif; font-style: italic; margin-bottom: 1.5rem; }
+  .statement-body p { font-size: 0.85rem; line-height: 1.85; color: var(--warm-grey); max-width: 60ch; font-family: 'Libre Baskerville', serif; font-style: italic; margin-bottom: 1.25rem;}
+  .statement-body p:last-of-type { margin-bottom: 0; padding-bottom: 0; }
 
   /* ─── SECTION HEADER ─── */
   .section-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem; }
@@ -89,7 +90,7 @@
 
   /* ─── WORK ─── */
   .work-section { padding: 3rem 0; border-bottom: var(--rule); }
-  .work-section-title h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(0.9rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
+  .work-section-title h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(0.9rem, 3.5vw, 3.5rem); letter-spacing: 0.12em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
   .work-section-title h2 span { color: var(--accent); }
   .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule-dark); border: var(--rule-dark); }
   .photo-cell {aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s; }
@@ -101,7 +102,7 @@
   .ethos { padding: 3rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; border-bottom: var(--rule); }
   .ethos-left p { font-family: 'Libre Baskerville', serif; font-size: 0.9rem; line-height: 1.9; color: var(--warm-grey); font-style: italic; margin-bottom: 1.5rem; }
   .ethos-left h2,
-  .ethos-right h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
+  .ethos-right h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.12em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
   .ethos-left h2 span,
   .ethos-right h2 span { display: block; color: var(--accent); }
 
@@ -113,18 +114,9 @@
   .ethos-principles li .val-name { font-family: 'IBM Plex Mono', monospace; font-weight: 400; color: var(--ink); letter-spacing: 0.05em; padding-top: 0.05rem; }
   .ethos-principles li .val-text { color: var(--warm-grey); }
 
-  /* MEMBER PRINCIPLES LIST */
-  .member-principles-wrap { margin-top: 2rem; padding-top: 1rem; }
-  .member-principles-wrap h2 {
-    font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 2.5vw, 2.5rem); letter-spacing: 0.05em; line-height: 1; color: var(--ink); margin-bottom: 1.5rem; }
-  .member-principles-wrap h2 span { color: var(--accent); }
-  .member-principles { list-style: none; }
-  .member-principles li { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0 0.75rem; padding: 0.5rem 0; border-top: var(--rule); font-size: 0.7rem; line-height: 1.6;color: var(--warm-grey); letter-spacing: 0.03em; align-items: start; }
-  .member-principles li .p-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--mid-grey); line-height: 1.2; }
-
   /* ─── MEMBERS ─── */
   .members-section { padding: 3rem 0; border-bottom: var(--rule); }
-  .members-section-title h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 2.5vw, 2.5rem); letter-spacing: 0.05em; line-height: 1; color: var(--ink); margin-bottom: 1.5rem; }
+  .members-section-title h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 2.5vw, 2.5rem); letter-spacing: 0.12em; line-height: 1; color: var(--ink); margin-bottom: 1.5rem; }
   .members-section-title h2 span { color: var(--accent); }
   .members-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule-dark); border: var(--rule-dark); margin-top: 2.5rem; }
   .member-card { background: var(--bg); padding: 1.5rem; transition: background 0.2s; }
@@ -134,10 +126,18 @@
   .member-name { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.08em; color: var(--ink); margin-bottom: 0.25rem; }
   .member-focus { font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
 
+  /* MEMBER PRINCIPLES LIST */
+  .member-principles-wrap { margin-top: 2rem; padding-top: 1rem; }
+  .member-principles-wrap h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 2.5vw, 2.5rem); letter-spacing: 0.12em; line-height: 1; color: var(--ink); margin-bottom: 1.5rem; }
+  .member-principles-wrap h2 span { color: var(--accent); }
+  .member-principles { list-style: none; }
+  .member-principles li { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0 0.75rem; padding: 0.5rem 0; border-top: var(--rule); font-size: 0.7rem; line-height: 1.6;color: var(--warm-grey); letter-spacing: 0.03em; align-items: start; }
+  .member-principles li .p-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--mid-grey); line-height: 1.2; }
+
   /* ─── MEETUP ─── */
   .meetup { padding: 2rem 0; display: grid; grid-template-columns: 1fr 1fr; border-bottom: var(--rule); align-items: center; }
-  .meetup h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
-  .meetup h2 span { display: block; color: var(--accent); }
+  .meetup h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 2.5vw, 2.5rem); letter-spacing: 0.12em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
+  .meetup h2 span {display:block; color: var(--accent); }
   .meetup p { font-size: 0.75rem; line-height: 1.8; color: var(--warm-grey); margin-bottom: 1rem; max-width: 80ch; }
   .meetup-detail { padding: 0 1rem; min-width: 220px;}
   .meetup-detail-row { padding: 1.25rem 0; border-bottom: var(--rule); display: flex; flex-direction: column; gap: 0.25rem; }
@@ -147,7 +147,7 @@
 
   /* ─── CONTACT ─── */
   .contact-section { padding: 3rem 0; border-bottom: var(--rule); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-  .contact-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3vw, 3rem); letter-spacing: 0.05em; color: var(--ink); margin-bottom: 1.5rem; }
+  .contact-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 2.5vw, 2.5rem); letter-spacing: 0.05em; color: var(--ink); margin-bottom: 1.5rem; }
   .contact-section h2 span { color: var(--accent); }
   .contact-section > div > p { font-size: 0.75rem; line-height: 1.8; color: var(--warm-grey); margin-bottom: 1rem; max-width: 80ch; }
   .contact-links { list-style: none; margin-top: 2rem; }
@@ -298,7 +298,8 @@
     <div class="statement-label"><h1>Photography<br>from the<br><em>street up.</em></h1></div>
     <div class="statement-body">
       <p>Pavement Photos is a photography collective rooted in the documentary and street traditions. Urban, wild, social, environmental — unposed, unglamorous.</p>
-      <p>We notice what's being ignored, point at what's uncomfortable. We give space to the people, places, and organisations doing necessary work. We are on the side of people over profit, place over development, the overlooked over the celebrated.</p>
+	  <p>We notice what's being ignored, point at what's uncomfortable. We give space to the people, places, and organisations doing necessary work. We are on the side of people over profit, place over development, the overlooked over the celebrated.</p>
+	  <p>Our aim is to document the world we live in and explain it through our images.</p>
     </div>
   </section>
 
@@ -340,14 +341,14 @@
   <!-- ABOUT -->
   <section id="about" class="ethos">
     <div class="ethos-left">
-      <h2>Our <br><span>Story.</span></h2>
+      <h2>The <br><span>Story.</span></h2>
       <p>Pavement Photos doesn't exist yet in the way it will. Right now it is one person, a set of values, and an open invitation.  This is the notice on the door.</p>
       <p>The goal is a platform for serious documentary photography — exhibitions, publications, and commissioned work for organisations whose values align with ours. A place where photographers can find peers, develop practice, and get their work seen.</p>
 	  <p>We will be a cooperative of photographers who go out into the world with a camera and come back with something true. We will share work, challenge each other, and operate on the Magnum model: members own their photographs, decisions are made collectively, and the work always comes first.</p>
 	  <p>We are based in Perth. We meet monthly. We are just getting started.</p>
     </div>
     <div class="ethos-right">
-      <h2>Our <br><span>Values.</span></h2>
+      <h2>The <br><span>Values.</span></h2>
       <ul class="ethos-principles">
         <li>
           <span class="val-num">01</span>
@@ -447,7 +448,7 @@
   <!-- MEETUP -->
   <section id="meetup" class="meetup">
     <div>
-      <h2>Monthly<span>Meetup</span></h2>
+      <h2>Monthly <span>Meetup</span></h2>
       <p>Ideally, we will meet once a month in Perth. A projector, some pints, and honest conversation about photography and the work we're making. Attendance at monthly meetings is open to anyone with a genuine interest in the documentary and street traditions.</p>
       <p>Membership is selective rather than open. Prospective members show work and are invited in by existing members. This is how we maintain a shared standard and a coherent collective voice.</p>
     </div>
