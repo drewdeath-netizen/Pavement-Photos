@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://www.pavementphotos.com">
 <meta property="og:type" content="website">
 
-<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -24,8 +24,8 @@
     --bg: #FAFAF8;
     --ink: #0a0a0a;
     --warm-grey: #6a6058;
-    --mid-grey: #c8c0b4;
-    --light-grey: #e0d8ce;
+    --mid-grey: #777777;
+    --light-grey: #d3d3d3;
     --accent: #c8401a;
 	--accent2: #c8401a;
     --rule: 1px solid #d0c8be;
@@ -34,108 +34,33 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { font-size: 16px; scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 300;
-    letter-spacing: 0.01em;
-    overflow-x: hidden;
-  }
+  body { background: var(--bg); color: var(--ink); font-family: 'IBM Plex Mono', monospace; font-weight: 300; letter-spacing: 0.01em; overflow-x: hidden; }
   section[id], div[id] { scroll-margin-top: 60px; }
 
   /* ─── NAV ─── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    border-bottom: var(--rule-dark);
-    background: var(--bg);
-    backdrop-filter: blur(6px);
-	opacity: 0.95
-  }
-  .nav-wordmark {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 0.12em;
-    color: var(--ink);
-    text-decoration: none;
-    flex-shrink: 0;
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: var(--rule-dark); background: var(--bg); backdrop-filter: blur(6px); opacity: 0.95 }
+  .nav-wordmark { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; flex-shrink: 0; }
   .nav-wordmark span { color: var(--accent); }
 
-  .nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    z-index: 101;
-  }
-  .nav-toggle span {
-    display: block;
-    width: 24px;
-    height: 1.5px;
-    background: var(--ink);
-    transition: transform 0.3s, opacity 0.3s;
-  }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 101; }
+  .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--ink); transition: transform 0.3s, opacity 0.3s; }
   .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
   .nav-toggle.open span:nth-child(2) { opacity: 0; }
   .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--warm-grey);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
+  .nav-links a { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-grey); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--ink); }
 
   /* ─── HERO ─── */
   .hero { margin-top: 56px; position: relative; width: 100%; }
-  .hero-image {
-    width: 100%;
-    aspect-ratio: 3 / 2;
-    background: var(--light-grey);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    border-bottom: var(--rule-dark);
-    max-height: 50vh;
-  }
-  .hero-caption {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    padding: 1.5rem 2.5rem;
-    background: linear-gradient(transparent, rgba(240,236,228,0.85));
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
+  .hero-image { width: 100%; aspect-ratio: 3 / 2;background: var(--light-grey); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; border-bottom: var(--rule-dark); max-height: 50vh; }
+  .hero-caption { position: absolute; bottom: 0; left: 0; right: 0;padding: 1.5rem 2.5rem; background: linear-gradient(transparent, rgba(240,236,228,0.85)); z-index: 2; display: flex; justify-content: space-between; align-items: flex-end; }
   .hero-caption-text { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bg); font-style: italic; }
   .hero-caption-counter { font-size: 0.6rem; letter-spacing: 0.1em; color: var(--bg); }
 
   /* ─── TICKER ─── */
-  .ticker {
-    border-bottom: var(--rule-dark);
-    padding: 0.65rem 0;
-    overflow: hidden;
-    white-space: nowrap;
-    background: var(--bg);
-  }
+  .ticker { border-bottom: var(--rule-dark); padding: 0.65rem 0; overflow: hidden; white-space: nowrap; background: var(--bg); }
   .ticker-inner { display: inline-block; animation: ticker 30s linear infinite; }
   .ticker-inner span { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-grey); padding: 0 2rem; }
   .ticker-inner span.sep { color: var(--accent); padding: 0; }
@@ -148,7 +73,7 @@
   main { max-width: 1400px; margin: 0 auto; padding: 0 2.5rem; }
 
   /* ─── STATEMENT ─── */
-  .statement { padding: 2rem 0 0; display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; border-bottom: var(--rule); }
+  .statement { padding: 2rem 0 0; display: grid; grid-template-columns: 1fr 3fr; gap: 2rem; border-bottom: var(--rule); }
   .statement-label { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); padding-top: 0.4rem; }
   .statement-body h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 5vw, 5rem); letter-spacing: 0.05em; line-height: 0.95; color: var(--ink); margin-bottom: 2rem; }
   .statement-body h1 em { color: var(--accent); font-style: normal; }
@@ -164,9 +89,8 @@
   .work-section-title h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
   .work-section-title h2 span { color: var(--accent); }
   .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule-dark); border: var(--rule-dark); }
-  .photo-cell { background: var(--light-grey); aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s; }
-  .photo-cell:hover { background: #ddd5c8; }
-  .photo-cell-meta { position: absolute; bottom: 0.75rem; left: 0.75rem; right: 0.75rem; display: flex; justify-content: space-between; opacity: 0; transition: opacity 0.3s; }
+  .photo-cell {aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s; }
+  .photo-cell-meta { position: absolute; bottom: 0.75rem; left: 0.75rem; right: 0.75rem; display: flex; justify-content: space-between; opacity: 0; transition: opacity 0.3s; background: var(--ink);}
   .photo-cell:hover .photo-cell-meta { opacity: 1; }
   .photo-cell-meta span { font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bg); }
 
@@ -180,69 +104,20 @@
 
   /* VALUES LIST — three-column grid for alignment */
   .ethos-principles { list-style: none; margin-top: 1rem; }
-  .ethos-principles li {
-    display: grid;
-    grid-template-columns: 2.5rem 8rem 1fr;
-    gap: 0 0.75rem;
-    padding: 1rem 0;
-    border-top: var(--rule);
-    font-size: 0.7rem;
-    line-height: 1.6;
-    color: var(--warm-grey);
-    letter-spacing: 0.03em;
-    align-items: start;
+  .ethos-principles li {display: grid; grid-template-columns: 2.5rem 8rem 1fr; gap: 0 0.75rem; padding: 1rem 0; border-top: var(--rule); font-size: 0.7rem; line-height: 1.6; color: var(--warm-grey); letter-spacing: 0.03em; align-items: start;
   }
-  .ethos-principles li .val-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    color: var(--mid-grey);
-    line-height: 1.2;
-  }
-  .ethos-principles li .val-name {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 400;
-    color: var(--ink);
-    letter-spacing: 0.05em;
-    padding-top: 0.05rem;
-  }
-  .ethos-principles li .val-text {
-    color: var(--warm-grey);
-  }
+  .ethos-principles li .val-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--mid-grey); line-height: 1.2; }
+  .ethos-principles li .val-name { font-family: 'IBM Plex Mono', monospace; font-weight: 400; color: var(--ink); letter-spacing: 0.05em; padding-top: 0.05rem; }
+  .ethos-principles li .val-text { color: var(--warm-grey); }
 
   /* MEMBER PRINCIPLES LIST */
-  .member-principles-wrap {
-    margin-top: 2rem;
-    padding-top: 1rem;
-
-  }
+  .member-principles-wrap { margin-top: 2rem; padding-top: 1rem; }
   .member-principles-wrap h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
-    letter-spacing: 0.05em;
-    line-height: 1;
-    color: var(--ink);
-    margin-bottom: 1.5rem;
-  }
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 2.5vw, 2.5rem); letter-spacing: 0.05em; line-height: 1; color: var(--ink); margin-bottom: 1.5rem; }
   .member-principles-wrap h2 span { color: var(--accent); }
   .member-principles { list-style: none; }
-  .member-principles li {
-    display: grid;
-    grid-template-columns: 2.5rem 1fr;
-    gap: 0 0.75rem;
-    padding: 0.5rem 0;
-    border-top: var(--rule);
-    font-size: 0.7rem;
-    line-height: 1.6;
-    color: var(--warm-grey);
-    letter-spacing: 0.03em;
-    align-items: start;
-  }
-  .member-principles li .p-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.2rem;
-    color: var(--mid-grey);
-    line-height: 1.2;
-  }
+  .member-principles li { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0 0.75rem; padding: 0.5rem 0; border-top: var(--rule); font-size: 0.7rem; line-height: 1.6;color: var(--warm-grey); letter-spacing: 0.03em; align-items: start; }
+  .member-principles li .p-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--mid-grey); line-height: 1.2; }
 
   /* ─── MEMBERS ─── */
   .members-section { padding: 3rem 0; border-bottom: var(--rule); }
@@ -257,11 +132,11 @@
   .member-focus { font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
 
   /* ─── MEETUP ─── */
-  .meetup { padding: 3rem 0; display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; border-bottom: var(--rule); align-items: center; }
+  .meetup { padding: 2rem 0; display: grid; grid-template-columns: 1fr 1fr; border-bottom: var(--rule); align-items: center; }
   .meetup h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3.5rem); letter-spacing: 0.05em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
   .meetup h2 span { display: block; color: var(--accent); }
-  .meetup p { font-size: 0.75rem; line-height: 1.8; color: var(--warm-grey); margin-bottom: 1rem; max-width: 55ch; }
-  .meetup-detail { padding: 0 2rem; background: var(--light-grey); border: var(--rule-dark); }
+  .meetup p { font-size: 0.75rem; line-height: 1.8; color: var(--warm-grey); margin-bottom: 1rem; max-width: 80ch; }
+  .meetup-detail { padding: 0 1rem; min-width: 220px;}
   .meetup-detail-row { padding: 1.25rem 0; border-bottom: var(--rule); display: flex; flex-direction: column; gap: 0.25rem; }
   .meetup-detail-row:last-child { border-bottom: none; }
   .meetup-detail-key { font-size: 0.5rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); }
@@ -271,7 +146,7 @@
   .contact-section { padding: 3rem 0; border-bottom: var(--rule); display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
   .contact-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3vw, 3rem); letter-spacing: 0.05em; color: var(--ink); margin-bottom: 1.5rem; }
   .contact-section h2 span { color: var(--accent); }
-  .contact-section > div > p { font-size: 0.75rem; line-height: 1.8; color: var(--warm-grey); margin-bottom: 1rem; max-width: 50ch; }
+  .contact-section > div > p { font-size: 0.75rem; line-height: 1.8; color: var(--warm-grey); margin-bottom: 1rem; max-width: 80ch; }
   .contact-links { list-style: none; margin-top: 2rem; }
   .contact-links li { padding: 1rem 0; border-top: var(--rule); display: flex; justify-content: space-between; align-items: center; }
   .contact-links li:last-child { border-bottom: var(--rule); }
@@ -280,24 +155,13 @@
   .contact-link-val:hover { color: var(--accent); }
   .contact-form-side { display: flex; flex-direction: column; gap: 1rem; }
   .contact-form-side input,
-  .contact-form-side textarea {
-    width: 100%; background: var(--light-grey); border: var(--rule-dark);
-    padding: 0.85rem 1rem; font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem; color: var(--ink); letter-spacing: 0.05em;
-    outline: none; transition: border-color 0.2s; resize: none;
-  }
+  .contact-form-side textarea { width: 100%; background: var(--light-grey); border: var(--rule-dark); padding: 0.85rem 1rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--ink); letter-spacing: 0.05em; outline: none; transition: border-color 0.2s; resize: none; }
   .contact-form-side input::placeholder,
-  .contact-form-side textarea::placeholder { color: var(--mid-grey); text-transform: uppercase; font-size: 0.55rem; letter-spacing: 0.15em; }
+  .contact-form-side textarea::placeholder { color: var(--warm-grey); text-transform: uppercase; font-size: 0.55rem; letter-spacing: 0.15em; }
   .contact-form-side input:focus,
   .contact-form-side textarea:focus { border-color: var(--accent); }
   .contact-form-side textarea { min-height: 120px; }
-  .submit-btn {
-    display: inline-block; padding: 1rem 2rem;
-    background: var(--ink); border: 1px solid var(--ink);
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem;
-    letter-spacing: 0.2em; text-transform: uppercase; color: var(--bg);
-    cursor: pointer; transition: background 0.2s, color 0.2s; align-self: flex-start;
-  }
+  .submit-btn { display: inline-block; padding: 1rem 2rem; background: var(--ink); border: 1px solid var(--ink); font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bg); cursor: pointer; transition: background 0.2s, color 0.2s; align-self: flex-start; }
   .submit-btn:hover { background: var(--accent); border-color: var(--accent); }
 
   /* ─── FOOTER ─── */
@@ -319,17 +183,7 @@
 
   @media (max-width: 768px) {
     .nav-toggle { display: flex; }
-    .nav-links {
-      display: none;
-      position: fixed;
-      top: 56px; left: 0; right: 0;
-      background: rgba(240,236,228,0.98);
-      backdrop-filter: blur(6px);
-      flex-direction: column;
-      gap: 0;
-      border-bottom: var(--rule-dark);
-      z-index: 99;
-    }
+    .nav-links { display: none; position: fixed; top: 56px; left: 0; right: 0; background: rgba(240,236,228,0.98); backdrop-filter: blur(6px); flex-direction: column; gap: 0; border-bottom: var(--rule-dark); z-index: 99; }
     .nav-links.open { display: flex; }
     .nav-links li { border-top: var(--rule); }
     .nav-links a { display: block; padding: 1.1rem 1.5rem; font-size: 0.75rem; letter-spacing: 0.2em; }
@@ -346,8 +200,8 @@
     .statement-body p { font-size: 0.8rem; }
 
     .work-section { padding: 3rem 0; }
-    .photo-grid { grid-template-columns: repeat(2, 1fr); }
-    .photo-cell-meta { opacity: 1; }
+    .photo-grid { grid-template-columns: repeat(1, 1fr); }
+    .photo-cell-meta { opacity: 1; background: var(--ink) }
 
     .ethos { grid-template-columns: 1fr; gap: 3rem; padding: 3rem 0; }
 
@@ -437,11 +291,11 @@
 
   <!-- STATEMENT -->
   <section id="statement" class="statement">
-    <div class="statement-label">Statement</div>
+    <div class="statement-label"></div>
     <div class="statement-body">
       <h1>Photography<br>from the<br><em>street up.</em></h1>
       <p>Pavement Photos is a photography collective rooted in the documentary and street traditions. Urban, wild, social, environmental — unposed, unglamorous.</p>
-      <p>We make photographs that don't look away. We notice what's being ignored, point at what's uncomfortable, and give space to the people, places, and organisations doing necessary work. We are on the side of people over profit, place over development, the overlooked over the celebrated.</p>
+      <p>We notice what's being ignored, point at what's uncomfortable. We give space to the people, places, and organisations doing necessary work. We are on the side of people over profit, place over development, the overlooked over the celebrated.</p>
     </div>
   </section>
 
@@ -484,7 +338,7 @@
   <section id="about" class="ethos">
     <div class="ethos-left">
       <h2>Our <br><span>Story.</span></h2>
-      <p>Pavement Photos started the way most worthwhile things do — a conversation in a pub between a few people who cared enough about their community, photography, and a willingness to be honest about it.</p>
+      <p>Pavement Photos doesn't exist yet in the way it will. Right now it is one person, a set of values, and an open invitation. The pub conversation hasn't happened yet. This is the notice on the door.</p>
       <p>We are a cooperative of photographers who go out into the world with a camera and come back with something true. We share work, challenge each other, and operate on the Magnum model: members own their photographs, decisions are made collectively, and the work always comes first.</p>
 	  <p>The goal is a platform for serious documentary photography — exhibitions, publications, commissioned work for organisations whose values align with ours. A place where photographers at any stage can find peers, develop practice, and get their work seen.</p>
 	  <p>We are based in Perth. We meet monthly. We are just getting started.</p>
