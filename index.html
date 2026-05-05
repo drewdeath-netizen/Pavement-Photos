@@ -62,16 +62,16 @@
   .hero-caption-text { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bg); font-style: italic; }
   .hero-caption-counter { font-size: 0.6rem; letter-spacing: 0.1em; color: var(--bg); }
 
-  /* ─── TICKER ─── */
+  /* ─── TICKER  ─── */
   .ticker { border-bottom: var(--rule-dark); padding: 0.65rem 0; overflow: hidden; white-space: nowrap; background: var(--bg); }
   .ticker-inner { display: inline-block; animation: ticker 30s linear infinite; }
   .ticker-inner span { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-grey); padding: 0 2rem; }
   .ticker-inner span.sep { color: var(--accent); padding: 0; }
-  @keyframes ticker {
+  /*@keyframes ticker {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
-  }
-
+  } */
+  
   /* ─── MAIN ─── */
   main { max-width: 1400px; margin: 0 auto; padding: 0 2.5rem; }
 
@@ -135,11 +135,11 @@
   .member-principles li .p-num { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--mid-grey); line-height: 1.2; }
 
   /* ─── MEETUP ─── */
-  .meetup { padding: 2rem 0; display: grid; grid-template-columns: 1fr 1fr; border-bottom: var(--rule); align-items: center; }
+  .meetup { padding: 3rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; border-bottom: var(--rule); align-items: center; }
   .meetup h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.5rem, 2.5vw, 2.5rem); letter-spacing: 0.12em; line-height: 1; margin-bottom: 2rem; color: var(--ink); }
   .meetup h2 span {display:block; color: var(--accent); }
   .meetup p { font-size: 0.75rem; line-height: 1.8; color: var(--warm-grey); margin-bottom: 1rem; max-width: 80ch; }
-  .meetup-detail { padding: 0 1rem; min-width: 220px;}
+  .meetup-detail { min-width: 220px;}
   .meetup-detail-row { padding: 1.25rem 0; border-bottom: var(--rule); display: flex; flex-direction: column; gap: 0.25rem; }
   .meetup-detail-row:last-child { border-bottom: none; }
   .meetup-detail-key { font-size: 0.5rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); }
@@ -261,7 +261,7 @@
          style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"
 		 fetchpriority=high>
     <div class="hero-caption">
-      <span class="hero-caption-text">Drew Death — Portland, 2021</span>
+      <span class="hero-caption-text">Drew Death — Glasgow, 2025</span>
       <span class="hero-caption-counter">01 / 01</span>
     </div>
   </div>
@@ -313,11 +313,11 @@
     <div class="photo-grid">
       <div class="photo-cell">
         <img src="images/1.avif" alt="Drew Death, Chicago 2021" style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div class="photo-cell-meta"><span>Drew Death</span><span>Chicago, 2021</span></div>
+        <div class="photo-cell-meta"><span>Drew Death</span><span>Portland, 2021</span></div>
       </div>
       <div class="photo-cell">
         <img src="images/2.avif" alt="Drew Death, Glasgow 2025" style="width:100%;height:100%;object-fit:cover;display:block;">
-        <div class="photo-cell-meta"><span>Drew Death</span><span>Glasgow, 2025</span></div>
+        <div class="photo-cell-meta"><span>Drew Death</span><span>Chicago, 2021</span></div>
       </div>
       <div class="photo-cell">
         <img src="images/3.avif" alt="Drew Death, Perth 2025" style="width:100%;height:100%;object-fit:cover;display:block;">
